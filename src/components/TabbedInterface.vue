@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 const props = defineProps({
   tabs: {
     type: Array,
@@ -74,8 +74,32 @@ function checkMobile() {
   isMobile.value = window.matchMedia('(max-width: 600px)').matches;
 }
 
-function toggleAccordion(idx) {
-  activeTab.value = activeTab.value === idx ? -1 : idx;
+async function toggleAccordion(idx) {
+  const clickedHeader = document.getElementById(`accordion-header-${idx}`);
+  if (!clickedHeader) return;
+
+  const headerRectBefore = clickedHeader.getBoundingClientRect();
+  const previouslyActive = activeTab.value;
+  const isClosingCurrent = previouslyActive === idx;
+
+  // Toggle the active tab
+  activeTab.value = isClosingCurrent ? -1 : idx;
+  
+  // We only want to adjust scroll when opening a new tab while another one was open
+  const shouldAdjustScroll = !isClosingCurrent && previouslyActive !== -1;
+
+  if (shouldAdjustScroll) {
+    // Wait for the DOM to update
+    await nextTick();
+
+    const headerRectAfter = clickedHeader.getBoundingClientRect();
+    const scrollOffset = headerRectAfter.top - headerRectBefore.top;
+
+    // Only scroll if there's a significant shift
+    if (Math.abs(scrollOffset) > 1) {
+      window.scrollBy({ top: scrollOffset, left: 0, behavior: 'instant' });
+    }
+  }
 }
 
 onMounted(() => {
