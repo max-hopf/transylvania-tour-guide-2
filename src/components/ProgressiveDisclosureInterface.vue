@@ -36,9 +36,38 @@
             >
               {{ tab.label }}
               <span class="accordion-icon">
-  <svg v-if="idx !== activeTab" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-  <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus-icon lucide-minus"><path d="M5 12h14"/></svg>
-</span>
+                <svg
+                  v-if="idx !== activeTab"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-plus-icon lucide-plus"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M12 5v14" />
+                </svg>
+                <svg
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-minus-icon lucide-minus"
+                >
+                  <path d="M5 12h14" />
+                </svg>
+              </span>
             </button>
             <div
               v-show="idx === activeTab"
@@ -59,60 +88,57 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 const props = defineProps({
   tabs: {
     type: Array,
     required: true,
-    default: () => []
-  }
-});
-const activeTab = ref(0);
-const isMobile = ref(false);
+    default: () => [],
+  },
+})
+const activeTab = ref(0)
+const isMobile = ref(false)
 
 function checkMobile() {
-  isMobile.value = window.matchMedia('(max-width: 600px)').matches;
+  isMobile.value = window.matchMedia('(max-width: 600px)').matches
 }
 
 async function toggleAccordion(idx) {
-  const clickedHeader = document.getElementById(`accordion-header-${idx}`);
-  if (!clickedHeader) return;
+  const clickedHeader = document.getElementById(`accordion-header-${idx}`)
+  if (!clickedHeader) return
 
-  const headerRectBefore = clickedHeader.getBoundingClientRect();
-  const previouslyActive = activeTab.value;
-  const isClosingCurrent = previouslyActive === idx;
+  const headerRectBefore = clickedHeader.getBoundingClientRect()
+  const previouslyActive = activeTab.value
+  const isClosingCurrent = previouslyActive === idx
 
   // Toggle the active tab
-  activeTab.value = isClosingCurrent ? -1 : idx;
-  
+  activeTab.value = isClosingCurrent ? -1 : idx
+
   // We only want to adjust scroll when opening a new tab while another one was open
-  const shouldAdjustScroll = !isClosingCurrent && previouslyActive !== -1;
+  const shouldAdjustScroll = !isClosingCurrent && previouslyActive !== -1
 
   if (shouldAdjustScroll) {
     // Wait for the DOM to update
-    await nextTick();
+    await nextTick()
 
-    const headerRectAfter = clickedHeader.getBoundingClientRect();
-    const scrollOffset = headerRectAfter.top - headerRectBefore.top;
+    const headerRectAfter = clickedHeader.getBoundingClientRect()
+    const scrollOffset = headerRectAfter.top - headerRectBefore.top
 
     // Only scroll if there's a significant shift
     if (Math.abs(scrollOffset) > 1) {
-      window.scrollBy({ top: scrollOffset, left: 0, behavior: 'instant' });
+      window.scrollBy({ top: scrollOffset, left: 0, behavior: 'instant' })
     }
   }
 }
 
 onMounted(() => {
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
-});
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+})
 onUnmounted(() => {
-  window.removeEventListener('resize', checkMobile);
-});
+  window.removeEventListener('resize', checkMobile)
+})
 </script>
-
-
-
 
 <style scoped>
 /* ========== Base Styles ========== */
@@ -120,7 +146,6 @@ onUnmounted(() => {
   background: #fff;
   margin: 0;
   padding: 0rem 0.5rem 4rem 0.5rem;
-
 }
 .tabbed-interface {
   width: 100%;
@@ -150,15 +175,17 @@ onUnmounted(() => {
     border: none;
     outline: none;
     cursor: pointer;
-    transition: color 0.2s, background 0.2s;
+    transition:
+      color 0.2s,
+      background 0.2s;
     margin-bottom: 3px;
   }
   .tab.active {
-    color: var(--color-primary-text, #007BFF);
+    color: var(--color-primary-text, #007bff);
     z-index: 2;
   }
   .tab:hover {
-    color: var(--color-primary-text, #007BFF);
+    color: var(--color-primary-text, #007bff);
   }
   .tab::after {
     content: '';
@@ -169,8 +196,8 @@ onUnmounted(() => {
     transform-origin: center;
     width: 90%;
     height: 2px;
-    background: var(--color-primary-text, #007BFF);
-    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    background: var(--color-primary-text, #007bff);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   }
   .tab:hover::after,
@@ -188,15 +215,15 @@ onUnmounted(() => {
 }
 
 @media (max-width: 600px) {
-
-  .tabs, .tab-content {
+  .tabs,
+  .tab-content {
     display: none;
   }
   .accordion {
     border: 2px solid #efefef;
   }
   .accordion-item {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     background: #fff;
     border-bottom: 1px solid #efefef;
     overflow: hidden;
@@ -219,22 +246,24 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: background 0.2s, color 0.2s;
+    transition:
+      background 0.2s,
+      color 0.2s;
   }
   .accordion-header.active,
   .accordion-header:focus {
     background: #fff;
-    color: var(--color-primary-text, #007BFF);
+    color: var(--color-primary-text, #007bff);
   }
   .accordion-arrow {
     margin-left: 0.5rem;
     font-size: 1.25em;
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #888;
   }
   .accordion-arrow.open {
     transform: rotate(180deg);
-    color: var(--color-primary-text, #007BFF);
+    color: var(--color-primary-text, #007bff);
   }
   .accordion-content {
     padding: 0rem 1.5rem 2rem 1.5rem;
@@ -246,30 +275,34 @@ onUnmounted(() => {
     word-break: break-word;
     text-align: left;
   }
-  .accordion-icon{
+  .accordion-icon {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   @keyframes accordion-fade-in {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
-</style>
 
-
-<style>
-.tab-content ul,
-.accordion-content ul {
+/* Styling for v-html content */
+:deep(.tab-content ul),
+:deep(.accordion-content ul) {
   list-style-type: disc;
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
-  padding-inline-start: 0;
+  padding-inline-start: 0px;
 }
 
-.tab-content li,
-.accordion-content li {
+:deep(.tab-content li),
+:deep(.accordion-content li) {
   text-align: left;
 }
 </style>

@@ -2,28 +2,58 @@
   <div class="home-page-content">
     <h1 class="main-title">Welcome to Your Transylvania Adventure</h1>
     <p class="intro-text">
-      Your journey into the heart of Romania begins here. Explore ancient castles, wander through medieval towns, and discover the breathtaking beauty of the Carpathian Mountains. Our expert guides are dedicated to providing you with an unforgettable experience, blending history, culture, and natural wonders into a seamless adventure.
+      Your journey into the heart of Romania begins here. Explore ancient castles, wander through
+      medieval towns, and discover the breathtaking beauty of the Carpathian Mountains. Our expert
+      guides are dedicated to providing you with an unforgettable experience, blending history,
+      culture, and natural wonders into a seamless adventure.
     </p>
-    
-    <TabbedInterface :tabs="tourTabs" />
+
+    <ProgressiveDisclosureInterface :tabs="tourTabs" />
+    <OurToursSection />
 
     <div class="extra-content">
       <h2>Why Choose Our Tours?</h2>
-      <p>We believe in authentic travel experiences. Forget cookie-cutter itineraries; we craft journeys that connect you with the real Transylvania. Our small group sizes ensure a personal touch, allowing for spontaneous detours to local markets or conversations with artisans in their workshops. We handle all the logistics, from comfortable transport to charming, hand-picked accommodations, so you can focus on soaking in the magic of your surroundings.</p>
-      
-      <p>Our guides are not just experts in history and folklore; they are passionate storytellers who bring the legends of Transylvania to life. Whether you're tracing the footsteps of Dracula, marveling at the architecture of Saxon villages, or hiking through pristine forests, you'll be in the hands of a knowledgeable and friendly local who is excited to share their home with you.</p>
+      <p>
+        We believe in authentic travel experiences. Forget cookie-cutter itineraries; we craft
+        journeys that connect you with the real Transylvania. Our small group sizes ensure a
+        personal touch, allowing for spontaneous detours to local markets or conversations with
+        artisans in their workshops. We handle all the logistics, from comfortable transport to
+        charming, hand-picked accommodations, so you can focus on soaking in the magic of your
+        surroundings.
+      </p>
+
+      <p>
+        Our guides are not just experts in history and folklore; they are passionate storytellers
+        who bring the legends of Transylvania to life. Whether you're tracing the footsteps of
+        Dracula, marveling at the architecture of Saxon villages, or hiking through pristine
+        forests, you'll be in the hands of a knowledgeable and friendly local who is excited to
+        share their home with you.
+      </p>
 
       <h2>Our Commitment to Sustainable Travel</h2>
-      <p>We are dedicated to preserving the beauty and culture of Transylvania for generations to come. We partner with local businesses, support community-led initiatives, and practice responsible tourism to ensure our tours have a positive impact. When you travel with us, you're not just a tourist; you're a valued guest contributing to the local economy and the conservation of this unique heritage.</p>
+      <p>
+        We are dedicated to preserving the beauty and culture of Transylvania for generations to
+        come. We partner with local businesses, support community-led initiatives, and practice
+        responsible tourism to ensure our tours have a positive impact. When you travel with us,
+        you're not just a tourist; you're a valued guest contributing to the local economy and the
+        conservation of this unique heritage.
+      </p>
 
-      <p>From the moment you book until you say your goodbyes, we are committed to providing exceptional service and a journey that exceeds your expectations. Get ready for an adventure that will leave you with lasting memories and a deep appreciation for the enchanting land of Transylvania.</p>
+      <p>
+        From the moment you book until you say your goodbyes, we are committed to providing
+        exceptional service and a journey that exceeds your expectations. Get ready for an adventure
+        that will leave you with lasting memories and a deep appreciation for the enchanting land of
+        Transylvania.
+      </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import TabbedInterface from './TabbedInterface.vue';
+import { ref } from 'vue'
+import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue'
+import TourCard from './TourCard.vue'
+import OurToursSection from './OurToursSection.vue'
 
 const tourTabs = ref([
   {
@@ -34,7 +64,7 @@ const tourTabs = ref([
       <li>2 nights’ accommodation with breakfast</li>
       <li>Entrance fees</li>
       <li>Bottled water provided during transfers</li>
-    </ul>`
+    </ul>`,
   },
   {
     label: `Highlights of the Tour`,
@@ -54,21 +84,20 @@ const tourTabs = ref([
       <li>Peleș Castle</li>
       <li>Corvin Castle</li>
     </ul><br>
-    We can also arrange village walks and visits to meet local residents.`
-  
+    We can also arrange village walks and visits to meet local residents.`,
   },
   {
     label: `Optional Extension`,
-    content: `Add an extra night in Brașov for a more relaxed pace and the chance to visit additional locations.`
+    content: `Add an extra night in Brașov for a more relaxed pace and the chance to visit additional locations.`,
   },
   {
     label: `Booking Policy`,
     content: `<ul>
       <li>A 30% deposit is required to secure your booking.</li>
       <li>Cancellation policy: Full refund available for cancellations made at least 7 days before the tour start date.</li>
-    </ul>`
-  }
-]);
+    </ul>`,
+  },
+])
 </script>
 
 <style scoped>
