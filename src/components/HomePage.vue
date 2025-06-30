@@ -102,10 +102,10 @@ const tourTabs = ref([
 
 <style scoped>
 .home-page-content {
-  max-width: 800px;
+  /* max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1rem 4rem 1rem;
-  color: #333;
+  color: #333; */
 }
 
 .main-title {

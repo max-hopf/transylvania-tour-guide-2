@@ -143,7 +143,7 @@ onUnmounted(() => {
 <style scoped>
 /* ========== Base Styles ========== */
 .tabbed-interface-section {
-  background: #fff;
+  background: var(--color-background);
   margin: 0;
   padding: 0rem 0.5rem 4rem 0.5rem;
 }
@@ -151,7 +151,7 @@ onUnmounted(() => {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--color-background);
 }
 
 /* ========== Desktop Tabs ========== */
@@ -159,8 +159,8 @@ onUnmounted(() => {
   .tabs {
     display: flex;
     flex-direction: row;
-    border-bottom: 2px solid #222;
-    background: #fff;
+    border-bottom: 2px solid var(--color-border);
+    background: var(--color-background);
     justify-content: space-around;
     gap: 0.5rem;
     width: 100%;
@@ -170,7 +170,7 @@ onUnmounted(() => {
     padding: 1rem 1.5rem 0.7rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: #222;
+    color: var(--color-text);
     background: none;
     border: none;
     outline: none;
@@ -181,11 +181,11 @@ onUnmounted(() => {
     margin-bottom: 3px;
   }
   .tab.active {
-    color: var(--color-primary-text, #007bff);
+    color: var(--color-text-highlight, #ffa800);
     z-index: 2;
   }
   .tab:hover {
-    color: var(--color-primary-text, #007bff);
+    color: var(--color-text-highlight, #ffa800);
   }
   .tab::after {
     content: '';
@@ -196,7 +196,7 @@ onUnmounted(() => {
     transform-origin: center;
     width: 90%;
     height: 2px;
-    background: var(--color-primary-text, #007bff);
+    background: var(--color-text-highlight, #ffa800);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   }
@@ -208,8 +208,8 @@ onUnmounted(() => {
     padding: 2rem 3rem;
     font-size: 1rem;
     line-height: 1.6;
-    color: #222;
-    background: #fff;
+    color: var(--color-text);
+    background: var(--color-background);
     text-align: left;
   }
 }
@@ -220,12 +220,12 @@ onUnmounted(() => {
     display: none;
   }
   .accordion {
-    border: 2px solid #efefef;
+    border: 2px solid var(--color-border);
   }
   .accordion-item {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    background: #fff;
-    border-bottom: 1px solid #efefef;
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
     overflow: hidden;
     transition: box-shadow 0.3s;
   }
@@ -236,12 +236,12 @@ onUnmounted(() => {
     width: 100%;
     text-align: left;
     padding: 1rem 1.5rem;
-    background: #fff;
+    background: var(--color-background);
     border: none;
     outline: none;
     font-size: 1.125rem;
     font-weight: 600;
-    color: #222;
+    color: var(--color-text);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -252,8 +252,8 @@ onUnmounted(() => {
   }
   .accordion-header.active,
   .accordion-header:focus {
-    background: #fff;
-    color: var(--color-primary-text, #007bff);
+    background: var(--color-background);
+    color: var(--color-text-highlight, #ffa800);
   }
   .accordion-arrow {
     margin-left: 0.5rem;
@@ -263,12 +263,12 @@ onUnmounted(() => {
   }
   .accordion-arrow.open {
     transform: rotate(180deg);
-    color: var(--color-primary-text, #007bff);
+    color: var(--color-text-highlight, #ffa800);
   }
   .accordion-content {
     padding: 0rem 1.5rem 2rem 1.5rem;
-    background: #fff;
-    color: #222;
+    background: var(--color-background);
+    color: var(--color-text);
     font-size: 1rem;
     line-height: 1.6;
     animation: accordion-fade-in 0.22s;

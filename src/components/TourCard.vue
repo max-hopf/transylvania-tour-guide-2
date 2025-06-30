@@ -1,20 +1,11 @@
 <template>
-  <router-link
-    class="tour-card"
-    :to="tourLink"
-    style="text-decoration: none; color: inherit;"
-  >
+  <router-link class="tour-card" :to="tourLink" style="text-decoration: none; color: inherit">
     <div class="tour-days-badge">
       <span class="days-number">{{ durationValue }}</span>
       <span class="days-label">{{ durationLabel }}</span>
     </div>
     <div class="tour-img-wrapper">
-      <img
-        :src="image"
-        :alt="title"
-        class="tour-img"
-        loading="lazy"
-      />
+      <img :src="image" :alt="title" class="tour-img" loading="lazy" />
     </div>
     <div class="tour-info">
       <div class="tour-price">
@@ -32,7 +23,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 const props = defineProps({
   title: { type: String, required: true },
   desc: { type: String, required: true },
@@ -40,38 +31,40 @@ const props = defineProps({
   durationLabel: { type: String, required: true },
   price: { type: String, required: true },
   image: { type: [String, Object], required: true },
-});
+})
 
 function slugify(str) {
-  return str.toLowerCase().replace(/\s+/g, '-');
+  return str.toLowerCase().replace(/\s+/g, '-')
 }
 
 const tourLink = computed(() => {
-  const title = props.title.toLowerCase();
-  if (title === 'transylvania') return '/tour/transylvania';
-  if (title === 'maramures') return '/tour/maramures';
-  if (title === 'bucovina') return '/tour/bucovina';
-  return `/tour/${slugify(props.title)}`;
-});
+  const title = props.title.toLowerCase()
+  if (title === 'transylvania') return '/tour/transylvania'
+  if (title === 'maramures') return '/tour/maramures'
+  if (title === 'bucovina') return '/tour/bucovina'
+  return `/tour/${slugify(props.title)}`
+})
 </script>
 
 <style scoped>
 .tour-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
   max-width: 350px;
   min-width: 270px;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 .tour-card:hover {
   transform: translateY(-7px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 .tour-img {
   width: 100%;
@@ -129,7 +122,9 @@ const tourLink = computed(() => {
   font-size: 2.3rem;
   font-weight: bold;
   color: #222;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85), 0 1px 12px rgba(255, 255, 255, 0.75);
+  text-shadow:
+    0 1px 3px rgba(255, 255, 255, 0.85),
+    0 1px 12px rgba(255, 255, 255, 0.75);
   margin-bottom: 3rem;
   margin-top: 0;
 }
@@ -138,7 +133,7 @@ const tourLink = computed(() => {
     gap: 1rem;
   }
   .activities-section {
-  padding: 4rem 1rem 4rem 1rem;
+    padding: 4rem 1rem 4rem 1rem;
   }
 }
 @media (max-width: 600px) {
@@ -165,7 +160,7 @@ const tourLink = computed(() => {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
   z-index: 2;
 }
 .days-number {
@@ -182,13 +177,15 @@ const tourLink = computed(() => {
   position: relative;
   background: #fff;
   border-radius: 1rem;
-  box-shadow: 0 2px 1rem rgba(0,0,0,0.07);
+  box-shadow: 0 2px 1rem rgba(0, 0, 0, 0.07);
   border: 2.5px solid #edeaf7;
   max-width: 350px;
   min-width: 270px;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -196,7 +193,7 @@ const tourLink = computed(() => {
 }
 .tour-card:hover {
   transform: translateY(-7px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 .tour-img-wrapper {
   width: 100%;
@@ -219,7 +216,7 @@ const tourLink = computed(() => {
   object-fit: cover;
   border-radius: 1rem;
   border: 4px solid #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   background: #fff;
   display: block;
   box-sizing: border-box;
@@ -230,5 +227,30 @@ const tourLink = computed(() => {
   left: 0;
 }
 
+@media (max-width: 400px) {
+  .tour-price {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+  .per-person {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-left: 2px;
+    color: var(--color-text);
+  }
 
+  .tour-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .tour-desc {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  } 
+}
 </style>

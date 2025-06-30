@@ -7,19 +7,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
+import { ref } from 'vue'
+import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue'
 
 const bucovinaTabs = ref([
   {
     label: 'Highlights',
-    content: '<ul><li>Visit the Voronet, Moldovita, and Sucevita monasteries.</li><li>Learn about the unique blue paint of Voronet.</li><li>Enjoy the scenic landscapes of the Bucovina region.</li></ul>'
+    content:
+      '<ul><li>Visit the Voronet, Moldovita, and Sucevita monasteries.</li><li>Learn about the unique blue paint of Voronet.</li><li>Enjoy the scenic landscapes of the Bucovina region.</li></ul>',
   },
   {
-    label: 'What\'s Included',
-    content: 'This tour includes a specialized guide, transportation, and entrance fees to the monasteries.'
-  }
-]);
+    label: "What's Included",
+    content:
+      'This tour includes a specialized guide, transportation, and entrance fees to the monasteries.',
+  },
+])
 </script>
 
 <style scoped>
