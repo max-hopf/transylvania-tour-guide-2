@@ -7,8 +7,8 @@
         <span class="days-label">{{ durationLabel }}</span>
       </div>
     </div>
-    <div class="tour-price">
-      <div class="tour-info">
+    <div class="tour-info">
+      <div class="tour-price">
         <span v-if="price && price.includes('/person')">
           {{ price.split('/person')[0] }}<span class="per-person">/person</span>
         </span>
@@ -51,9 +51,9 @@ const tourLink = computed(() => {
   background: var(--color-background);
   border-radius: 1rem;
   box-shadow: 0 2px 1rem rgba(0, 0, 0, 0.07);
-  border: 2.5px solid var(--color-background);
-  max-width: 360px;
-  min-width: 270px;
+  border: 2.5px solid var(--color-border-light-soft);
+  max-width: 23rem;
+  min-width: 240px;
   cursor: pointer;
   overflow: hidden;
   transition:
@@ -98,25 +98,26 @@ const tourLink = computed(() => {
   /* border removed to fix aspect ratio */
 }
 .tour-info {
-  padding: 0 0.5rem;
-  text-align: left;
-}
-.tour-price {
   font-size: 1.125rem;
   font-weight: 500;
-  color: var(--color-text);
+  color: var(--color-text-dark);
   margin-bottom: 0.5rem;
+}
+.tour-price {
+  padding: 0 0.5rem;
+  text-align: left;
+  max-width: 72%;
 }
 .per-person {
   font-size: 1.125rem;
-  color: var(--color-text);
+  color: var(--color-text-dark);
   font-weight: 400;
   margin-left: 2px;
 }
 .tour-name {
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-text-dark);
   text-align: left;
   padding-left: 0.5rem;
 }
@@ -124,7 +125,7 @@ const tourLink = computed(() => {
   font-size: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  color: var(--color-text);
+  color: var(--color-text-dark);
   text-align: left;
   padding-left: 0.5rem;
 }
@@ -132,10 +133,10 @@ const tourLink = computed(() => {
   position: absolute;
   bottom: -2.25rem;
   right: 1.5rem;
-  background: var(--color-background);
-  border: 3px solid rgba(208, 208, 208, 0.83);
-  outline: 4px solid var(--color-background);
-  color: var(--color-text);
+  background: var(--color-background-light);
+  border: 3px solid var(--color-border-light-soft);
+  outline: 4px solid var(--color-background-light);
+  color: var(--color-text-dark);
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -144,7 +145,7 @@ const tourLink = computed(() => {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07); */
   z-index: 1;
 }
 .days-number {
@@ -154,15 +155,14 @@ const tourLink = computed(() => {
 .days-label {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--color-text);
+  color: var(--color-text-dark);
   margin-top: -2px;
 }
 @media (max-width: 360px) {
-  .tour-price {
-    font-size: 4.5vw;
+  .tour-info {
+    /* font-size: 4.5vw; */
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: var(--color-text);
   }
   .tour-days-badge {
     width: 3.5rem;
