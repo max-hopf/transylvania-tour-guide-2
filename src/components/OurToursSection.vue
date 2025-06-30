@@ -109,12 +109,6 @@ function slugify(title) {
   text-align: center;
   scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
 }
-/* .activities-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: red;
-  margin-bottom: 2.5rem;
-} */
 .activities-grid {
   display: flex;
   flex-wrap: wrap;
@@ -122,6 +116,50 @@ function slugify(title) {
   gap: 2rem;
   margin-top: 2.5rem;
 }
+.tour-label {
+  font-size: 1.25rem;
+  color: var(--color-text-highlight, #e08a1e);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: center;
+}
+.tour-label-line {
+  display: inline-block;
+  height: 2px;
+  width: 36px;
+  background: var(--color-text-highlight, #e08a1e);
+  border-radius: 2px;
+}
+.tour-title {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-shadow:
+    0 1px 3px rgba(255, 255, 255, 0.85),
+    0 1px 12px rgba(255, 255, 255, 0.75);
+  margin-bottom: 3rem;
+  margin-top: 0;
+}
+@media (max-width: 900px) {
+  .activities-grid {
+    gap: 1rem;
+  }
+  .activities-section {
+    padding: 4rem 1rem 4rem 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .activities-grid {
+    gap: 0.7rem;
+  }
+  .tour-title {
+    font-size: 1.6rem;
+  }
+}
+/* 
 .tour-card {
   background: #fff;
   border-radius: 18px;
@@ -145,8 +183,6 @@ function slugify(title) {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  /* border-top-left-radius: 18px;
-  border-top-right-radius: 18px; */
 }
 .tour-info {
   padding: 0 0.5rem;
@@ -176,33 +212,7 @@ function slugify(title) {
   margin-bottom: 1rem;
   color: var(--color-text);
 }
-.tour-label {
-  font-size: 1.25rem;
-  color: var(--color-text-highlight, #e08a1e);
-  font-weight: 600;
-  margin-bottom: 0.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  justify-content: center;
-}
-.tour-label-line {
-  display: inline-block;
-  height: 2px;
-  width: 36px;
-  background: var(--color-text-highlight, #e08a1e);
-  border-radius: 2px;
-}
-.tour-title {
-  font-size: 2.3rem;
-  font-weight: bold;
-  color: var(--color-text);
-  text-shadow:
-    0 1px 3px rgba(255, 255, 255, 0.85),
-    0 1px 12px rgba(255, 255, 255, 0.75);
-  margin-bottom: 3rem;
-  margin-top: 0;
-}
+
 @media (max-width: 900px) {
   .activities-grid {
     gap: 1rem;
@@ -273,7 +283,6 @@ function slugify(title) {
 .tour-img-wrapper {
   width: 100%;
   aspect-ratio: 1 / 1;
-  /* fallback for browsers that do not support aspect-ratio */
   height: 0;
   padding-bottom: 100%;
   position: relative;
@@ -281,7 +290,6 @@ function slugify(title) {
   margin-bottom: 0.5rem;
   overflow: hidden;
   border-radius: 1rem;
-  /* border removed to fix aspect ratio */
 }
 
 .tour-img {
@@ -300,5 +308,5 @@ function slugify(title) {
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 </style>
