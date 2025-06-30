@@ -105,8 +105,10 @@ const tourLink = computed(() => {
 }
 .tour-price {
   padding: 0 0.5rem;
+  margin-bottom: 0.25rem;
   text-align: left;
-  max-width: 72%;
+  padding-right: 6rem;
+  line-height: 1.3rem;
 }
 .per-person {
   font-size: 1.125rem;
@@ -128,6 +130,7 @@ const tourLink = computed(() => {
   color: var(--color-text-dark);
   text-align: left;
   padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .tour-days-badge {
   position: absolute;
@@ -157,27 +160,5 @@ const tourLink = computed(() => {
   font-weight: 400;
   color: var(--color-text-dark);
   margin-top: -2px;
-}
-@media (max-width: 360px) {
-  .tour-info {
-    /* font-size: 4.5vw; */
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  .tour-days-badge {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  .days-number {
-    font-size: 1rem;
-  }
-  .days-label {
-    font-size: 0.875rem;
-  }
-  .tour-days-badge {
-    position: absolute;
-    bottom: -2rem;
-    right: 1.5rem;
-  }
 }
 </style>
