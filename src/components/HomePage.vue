@@ -47,6 +47,7 @@
       </p>
     </div>
   </div>
+  <FooterSection />
 </template>
 
 <script setup>
@@ -54,6 +55,7 @@ import { ref } from 'vue'
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue'
 import TourCard from './TourCard.vue'
 import OurToursSection from './OurToursSection.vue'
+import FooterSection from './FooterSection.vue'
 
 const tourTabs = ref([
   {
