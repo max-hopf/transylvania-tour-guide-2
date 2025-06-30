@@ -57,15 +57,15 @@ const tourLink = computed(() => {
   cursor: pointer;
   overflow: hidden;
   transition:
-    transform 0.18s,
-    box-shadow 0.18s;
+    transform 0.3s,
+    box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   padding: 0.2rem 0.2rem 0 0.2rem;
 }
 .tour-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 .tour-img {
