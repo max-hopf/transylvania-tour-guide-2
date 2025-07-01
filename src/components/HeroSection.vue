@@ -1,6 +1,6 @@
 <template>
   <section class="hero-section" id="hero">
-    <!-- <HeaderNavBar /> -->
+    <HeaderNavBar />
     <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImageUrl})` }"></div>
     <!-- <div class="hero-overlay"> -->
     <div class="hero-content">
@@ -60,9 +60,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import heroImageUrl from '../assets/hero-img.jpg'
+import HeaderNavBar from './HeaderNavBar.vue';
 // import SocialMediaButtons from './SocialMediaButtons.vue';
 // import { images as heroImages } from './heroImages.js';
-// import HeaderNavBar from './HeaderNavBar.vue';
 
 const showTitle = ref(false)
 const showTopText = ref(false)
@@ -98,7 +98,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   height: auto; /* Allow height to grow based on content */
-  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  min-height: max(100vh, 32rem); /* Use max() to ensure a minimum height of 600px */
   display: flex;
   align-items: center;
   justify-content: center;
