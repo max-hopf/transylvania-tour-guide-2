@@ -112,14 +112,14 @@
       <!-- ANPC & Payments -->
       <div class="footer-col">
         <h4 class="footer-title">ANPC & Payments</h4>
-        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="anpc-logo-link">
           <img
             src="/src/assets/footer-images/anpc-sal.svg"
             alt="ANPC Alternative Dispute Resolution"
             class="anpc-logo"
           />
         </a>
-        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="anpc-logo-link">
           <img
             src="/src/assets/footer-images/anpc-sol.svg"
             alt="ANPC SOL - Online Dispute Resolution"
@@ -246,8 +246,8 @@
   outline: none;
 }
 .anpc-logo {
-  width: 16rem;
-  min-width: 250px;
+  width: 100%;
+  max-width: 16rem; /* Capped at 256px */
   height: auto;
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;
@@ -257,14 +257,23 @@
 .anpc-logo:hover {
   transform: scale(1.05);
 }
+.anpc-logo-link {
+  width: 100%;
+  max-width: 16rem; /* Capped at 256px */
+  height: auto;
+}
 .footer-payments {
+  width: 100%;
+  max-width: 16rem; /* Match the logo's max-width */
   margin-top: 0.4rem;
   display: flex;
-  gap: 0.8rem;
+  flex-wrap: wrap; /* Allow icons to wrap */
+  justify-content: space-around;
+  gap: 0.8em;
 }
 .payment-icon {
-  width: 3.3rem;
-  height: 2.3rem;
+  width: clamp(3.3rem, 2vw, 23.3rem);
+  aspect-ratio: 3 / 2;
   object-fit: contain;
   background: var(--color-background-light);
   border-radius: 0.5rem;

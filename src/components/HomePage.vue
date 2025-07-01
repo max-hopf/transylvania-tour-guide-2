@@ -41,7 +41,7 @@
       </p>
     </div> -->
   </div> 
-  <!-- <FooterSection /> -->
+  <FooterSection />
 </template>
 
 <script setup>
