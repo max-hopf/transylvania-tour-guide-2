@@ -48,7 +48,7 @@ const tourLink = computed(() => {
 
 <style scoped>
 .tour-card {
-  background: var(--color-background);
+  background: var(--color-background-light);
   border-radius: 1rem;
   box-shadow: 0 2px 1rem rgba(0, 0, 0, 0.07);
   border: 2.5px solid var(--color-border-light-soft);

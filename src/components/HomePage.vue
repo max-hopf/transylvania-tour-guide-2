@@ -1,14 +1,8 @@
 <template>
   <div class="home-page-content">
-    <h1 class="main-title">Welcome to Your Transylvania Adventure</h1>
-    <p class="intro-text">
-      Your journey into the heart of Romania begins here. Explore ancient castles, wander through
-      medieval towns, and discover the breathtaking beauty of the Carpathian Mountains. Our expert
-      guides are dedicated to providing you with an unforgettable experience, blending history,
-      culture, and natural wonders into a seamless adventure.
-    </p>
+    <HeroSection />
 
-    <ProgressiveDisclosureInterface :tabs="tourTabs" />
+    <!-- <ProgressiveDisclosureInterface :tabs="tourTabs" /> -->
     <OurToursSection />
 
     <div class="extra-content">
@@ -56,6 +50,7 @@ import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue
 import TourCard from './TourCard.vue'
 import OurToursSection from './OurToursSection.vue'
 import FooterSection from './FooterSection.vue'
+import HeroSection from './HeroSection.vue'
 
 const tourTabs = ref([
   {

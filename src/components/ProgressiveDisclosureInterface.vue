@@ -100,7 +100,7 @@ const activeTab = ref(0)
 const isMobile = ref(false)
 
 function checkMobile() {
-  isMobile.value = window.matchMedia('(max-width: 600px)').matches
+  isMobile.value = window.matchMedia('(max-width: 38rem)').matches
 }
 
 async function toggleAccordion(idx) {
@@ -143,7 +143,8 @@ onUnmounted(() => {
 <style scoped>
 /* ========== Base Styles ========== */
 .tabbed-interface-section {
-  background: var(--color-background);
+  background: var(--color-background-light);
+  color: var(--color-text-dark);
   margin: 0;
   padding: 0rem 0.5rem 4rem 0.5rem;
 }
@@ -151,16 +152,16 @@ onUnmounted(() => {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  background: var(--color-background);
+  background: var(--color-background-light);
 }
 
 /* ========== Desktop Tabs ========== */
-@media (min-width: 601px) {
+@media (min-width: calc(38rem + 1px)) {
   .tabs {
     display: flex;
     flex-direction: row;
-    border-bottom: 2px solid var(--color-border);
-    background: var(--color-background);
+    border-bottom: 2px solid var(--color-border-light-soft);
+    background: var(--color-background-light);
     justify-content: space-around;
     gap: 0.5rem;
     width: 100%;
@@ -170,7 +171,7 @@ onUnmounted(() => {
     padding: 1rem 1.5rem 0.7rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-dark);
     background: none;
     border: none;
     outline: none;
@@ -208,24 +209,24 @@ onUnmounted(() => {
     padding: 2rem 3rem;
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--color-text);
-    background: var(--color-background);
+    color: var(--color-text-dark);
+    background: var(--color-background-light);
     text-align: left;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 38rem) {
   .tabs,
   .tab-content {
     display: none;
   }
   .accordion {
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-border-light-mute);
   }
   .accordion-item {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    background: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--color-background-light);
+    border-bottom: 1px solid var(--color-border-light-mute);
     overflow: hidden;
     transition: box-shadow 0.3s;
   }
@@ -236,23 +237,24 @@ onUnmounted(() => {
     width: 100%;
     text-align: left;
     padding: 1rem 1.5rem;
-    background: var(--color-background);
+    background: var(--color-background-light);
     border: none;
     outline: none;
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-dark);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.5rem;
     transition:
       background 0.2s,
       color 0.2s;
   }
   .accordion-header.active,
   .accordion-header:focus {
-    background: var(--color-background);
+    background: var(--color-background-light);
     color: var(--color-text-highlight, #ffa800);
   }
   .accordion-arrow {
@@ -267,8 +269,8 @@ onUnmounted(() => {
   }
   .accordion-content {
     padding: 0rem 1.5rem 2rem 1.5rem;
-    background: var(--color-background);
-    color: var(--color-text);
+    background: var(--color-background-light);
+    color: var(--color-text-dark);
     font-size: 1rem;
     line-height: 1.6;
     animation: accordion-fade-in 0.22s;
@@ -279,6 +281,10 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .lucide {
+    height: 1.5rem;
+    width: 1.5rem;
   }
   @keyframes accordion-fade-in {
     from {

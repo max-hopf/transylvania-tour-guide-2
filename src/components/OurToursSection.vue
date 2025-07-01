@@ -136,7 +136,7 @@ function slugify(title) {
 .tour-title {
   font-size: 2.3rem;
   font-weight: bold;
-  color: var(--color-text);
+  color: var(--color-text-dark);
   text-shadow:
     0 1px 3px rgba(255, 255, 255, 0.85),
     0 1px 12px rgba(255, 255, 255, 0.75);
