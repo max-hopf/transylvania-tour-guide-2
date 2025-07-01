@@ -40,6 +40,7 @@
         Transylvania.
       </p>
     </div> -->
+    <AboutUsSection />
     <ContactSection />
   </div> 
   <FooterSection />
@@ -53,6 +54,7 @@ import OurToursSection from './OurToursSection.vue'
 import FooterSection from './FooterSection.vue'
 import HeroSection from './HeroSection.vue'
 import ContactSection from './ContactSection.vue'
+import AboutUsSection from './AboutUsSection.vue'
 
 const tourTabs = ref([
   {
