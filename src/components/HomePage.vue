@@ -3,9 +3,9 @@
     <HeroSection />
 
     <!-- <ProgressiveDisclosureInterface :tabs="tourTabs" /> -->
-    <OurToursSection />
+    <!-- <OurToursSection /> -->
 
-    <div class="extra-content">
+    <!-- <div class="extra-content">
       <h2>Why Choose Our Tours?</h2>
       <p>
         We believe in authentic travel experiences. Forget cookie-cutter itineraries; we craft
@@ -39,9 +39,9 @@
         that will leave you with lasting memories and a deep appreciation for the enchanting land of
         Transylvania.
       </p>
-    </div>
-  </div>
-  <FooterSection />
+    </div> -->
+  </div> 
+  <!-- <FooterSection /> -->
 </template>
 
 <script setup>
@@ -105,15 +105,15 @@ const tourTabs = ref([
   color: #333; */
 }
 
-.main-title {
+/* .main-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: #2c3e50;
-}
+} */
 
-.intro-text {
+/* .intro-text {
   text-align: center;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -121,8 +121,8 @@ const tourTabs = ref([
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-}
-
+} */
+/* 
 .extra-content {
   margin-top: 4rem;
   text-align: left;
@@ -141,5 +141,5 @@ const tourTabs = ref([
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
-}
+} */
 </style>

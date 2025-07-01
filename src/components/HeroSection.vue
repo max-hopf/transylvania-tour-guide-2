@@ -95,95 +95,83 @@ onMounted(() => {
 <style scoped>
 .hero-section {
   position: relative;
-  /* width: 100vw;
-  min-width: 100vw; */
   left: 0;
   right: 0;
-  height: 100vh;
-  min-height: 32rem !important;
+  height: auto; /* Allow height to grow based on content */
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   margin: 0;
-  padding: 0;
+  padding: 2rem 1rem; /* Optimized padding for smaller screens */
   box-sizing: border-box;
-  /* Prevent content from being hidden behind mobile browser chrome */
-  min-height: 100svh;
+}
+
+.hero-content {
+  color: var(--color-text-light);
+  text-align: center;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .hero-title {
-  font-size: 2.8rem;
+  /* Fluid typography: scales from 2.2rem to 4rem based on viewport width */
+  font-size: clamp(2.2rem, 5vw + 1rem, 4rem); /* font-size: 2.8rem; */
   font-weight: bold;
   color: var(--color-text-light);
   text-shadow:
     0 1px 6px rgba(0, 0, 0, 1),
     0 1px 12px rgba(0, 0, 0, 1);
-  margin-bottom: 1rem;
+  margin: 0;
+  word-break: break-word; /* Ensure long words wrap */
 }
+
 .hero-top-text {
-  font-size: 1.4rem;
+  /* Fluid typography: scales from 1.2rem to 1.8rem */
+  font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.8rem); /* font-size: 1.4rem; */
   font-weight: 600;
-  margin-bottom: 1.1rem;
   color: var(--color-text-light);
   letter-spacing: 0.04em;
   text-shadow:
     0 1px 6px rgba(0, 0, 0, 1),
     0 1px 12px rgba(0, 0, 0, 1);
+  margin: 0;
 }
-.hero-phone-number {
-}
+
 .hero-phone-number-text {
   color: var(--color-text-dark-strong);
   font-weight: 600;
 }
-.hero-content {
-  color: var(--color-text-light);
-  text-align: center;
-  z-index: 3;
-  /* width: 48rem; */
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.hero-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.32);
-}
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
+
 .cta-btn {
   display: flex;
   background: var(--color-background-highlight);
   color: var(--color-text-dark-strong);
   font-weight: 600;
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 5rem; /* Large radius for pill shape */
   padding: 0.75rem 1.75rem;
-  font-size: 1.1rem;
+  /* Fluid font size for the button text */
+  font-size: clamp(1.1rem, 2vw + 0.5rem, 1.2rem); /* font-size: 1rem; */
   cursor: pointer;
-  transition: background 0.2s;
-  display: flex;
+  transition: filter 0.2s;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.75em; /* Use em to scale gap with font-size */
 }
 
 .lucide-phone-call-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  /* Use em to scale the icon relative to the button's font size */
+  width: 1.2em;
+  height: 1.2em;
 }
+
 .cta-btn:hover {
-  /* background: #d1770e; */
   filter: brightness(1.12);
 }
 
