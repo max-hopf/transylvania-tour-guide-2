@@ -8,11 +8,13 @@
   --color-text-dark: #2c3e50;
   --color-text-dark-soft: #222222;
   --color-text-dark-mute: #282828;
+  --color-text-dark-pale: #808080;
 
   --color-text-highlight: #ffa800;
   --color-background-highlight: #ffa800;
 
   --color-background-light: #ffffff;
+  --color-background-light-softer-tone: #f8f8fa;
   --color-background-light-soft: #f8f8f8;
   --color-background-light-mute: #f2f2f2;
 
@@ -23,6 +25,7 @@
   --color-border-light: rgba(208, 208, 208, 0.83);
   --color-border-light-soft: rgba(224, 224, 224, 0.64);
   --color-border-light-mute: rgba(235, 235, 235, 0.64);
+  --color-border-light-strong: rgba(229, 229, 233, 0.617);
 
   --color-border-dark: rgba(60, 60, 60, 0.29);
   --color-border-dark-soft: rgba(84, 84, 84, 0.48);
