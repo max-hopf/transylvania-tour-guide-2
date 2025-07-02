@@ -59,6 +59,7 @@ const props = defineProps({
   background: transparent;
   text-align: left;
   padding: 2.5rem 2rem 2rem 2rem;
+  overflow: scroll;
 } 
 .activity-details-title {
   font-size: clamp(2.3rem, 5vw, 2.6rem);

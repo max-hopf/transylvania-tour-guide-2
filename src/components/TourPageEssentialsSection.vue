@@ -89,43 +89,46 @@ const props = defineProps({
 
 <style scoped>
 .essential-info-section {
-  width: 100vw;
+  width: 100%;
   background: #23272f;
-  color: #fff;
+  color: var(--color-text-light);
   padding: 0rem 0rem 0rem 0;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 .essential-info-row {
-  max-width: 900px;
+  max-width: 56rem;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   gap: 0.5rem;
 }
 .essential-info-item {
   flex: 1 1 0;
-  border-radius: 10px;
   padding: 0.5rem 1rem 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07); */
 }
 .essential-info-item .icon {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
-  width: 32px;
-  height: 32px;
+  width: 1.75rem;
+  aspect-ratio: 1;
+}
+.essential-info-item .icon svg {
+  width: 100%;
+  height: 100%;
 }
 .essential-info-item .label {
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1rem;
   margin-bottom: 0.2em;
   display: block;
 }
@@ -133,5 +136,12 @@ const props = defineProps({
   font-size: 1rem;
   opacity: 0.95;
   font-weight: 500;
+}
+
+@media (max-width: 21rem) {
+  .essential-info-row {
+  display: flex;
+  flex-direction: column;
+  }
 }
 </style>
