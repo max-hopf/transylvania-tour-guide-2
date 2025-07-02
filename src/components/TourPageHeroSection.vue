@@ -60,6 +60,12 @@ const props = defineProps({
   text-align: left;
   padding: 2.5rem 2rem 2rem 2rem;
   overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.activity-details-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 } 
 .activity-details-title {
   font-size: clamp(2.3rem, 5vw, 2.6rem);
