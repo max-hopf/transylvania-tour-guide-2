@@ -1,97 +1,77 @@
 import sharp from 'sharp';
 import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { mkdirp } from 'mkdirp';
 
-// --- Configuration ---
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// --- Configuration --- //
 
-const sourceDir = path.join(__dirname, '../src/assets/image-originals');
-const outputDir = path.join(__dirname, '../public/images');
+const optimizationJobs = [
+  {
+    name: 'Tour Gallery',
+    sourceDir: 'src/assets/image-originals/tour-page-gallery-transylvania',
+    outputDir: 'public/images/tour-page-gallery-transylvania',
+    sizes: [480, 800, 1200],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 },
+    ],
+  },
+  {
+    name: 'Logo',
+    sourceDir: 'src/assets/image-originals/logo-img',
+    outputDir: 'public/images/logo-img',
+    sizes: [160, 320], // 1x and 2x for high-DPI screens
+    formats: [
+      { format: 'png', quality: 90 },
+      { format: 'webp', quality: 95 },
+    ],
+  },
+];
 
-const imageSizes = [480, 800, 1200]; // Widths in pixels
-const jpegQuality = 80;
-const webpQuality = 85;
+// --- Script --- //
 
-// --- Main Function ---
-async function optimizeImages() {
+async function processJob(job) {
+  console.log(`--- Starting Job: ${job.name} ---`);
   try {
-    console.log('Starting image optimization...');
-    await fs.access(sourceDir); // Check if source directory exists
-
-    const files = await fs.readdir(sourceDir, { recursive: true });
-    const imageTasks = [];
+    await mkdirp(job.outputDir);
+    const files = await fs.readdir(job.sourceDir);
 
     for (const file of files) {
-      const sourcePath = path.join(sourceDir, file);
-      const stats = await fs.stat(sourcePath);
+      const sourcePath = path.join(job.sourceDir, file);
+      const fileStats = await fs.stat(sourcePath);
+      if (fileStats.isDirectory()) continue;
 
-      if (stats.isDirectory()) {
-        continue; // Skip directories
-      }
+      const baseName = path.basename(file, path.extname(file));
+      console.log(`Processing ${file}...`);
 
-      const fileExt = path.extname(file).toLowerCase();
-      if (['.jpg', '.jpeg', '.png'].includes(fileExt)) {
-        imageTasks.push(processImage(file));
+      for (const size of job.sizes) {
+        for (const fmt of job.formats) {
+          const targetPath = path.join(job.outputDir, `${baseName}-${size}w.${fmt.format}`);
+          
+          await sharp(sourcePath)
+            .resize({ width: size })
+            .toFormat(fmt.format, { quality: fmt.quality })
+            .toFile(targetPath);
+        }
       }
     }
-
-    await Promise.all(imageTasks);
-    console.log('✅ Image optimization completed successfully!');
+    console.log(`--- Finished Job: ${job.name} ---\n`);
   } catch (error) {
     if (error.code === 'ENOENT') {
-      console.error(`Error: Source directory not found at ${sourceDir}`);
-      console.error('Please make sure it exists and contains your images.');
+      console.warn(`Source directory not found for job '${job.name}': ${job.sourceDir}. Skipping.`);
     } else {
-      console.error('An error occurred during image optimization:', error);
+      console.error(`Error processing job '${job.name}':`, error);
     }
-    process.exit(1);
   }
 }
 
-// --- Image Processing ---
-async function processImage(file) {
-  const sourcePath = path.join(sourceDir, file);
-  const relativePath = path.dirname(file);
-  const fileName = path.basename(file, path.extname(file));
-
-  const targetDir = path.join(outputDir, relativePath);
-  await mkdirp(targetDir); // Create destination directory if it doesn't exist
-
-  const image = sharp(sourcePath);
-
-  const processingTasks = [];
-
-  // Generate different sizes
-  for (const size of imageSizes) {
-    const targetFileNameWebp = `${fileName}-${size}w.webp`;
-    const targetFileNameJpeg = `${fileName}-${size}w.jpg`;
-    const targetPathWebp = path.join(targetDir, targetFileNameWebp);
-    const targetPathJpeg = path.join(targetDir, targetFileNameJpeg);
-
-    // WebP
-    processingTasks.push(
-      image
-        .resize({ width: size })
-        .webp({ quality: webpQuality })
-        .toFile(targetPathWebp)
-        .then(() => console.log(`Generated: ${path.join(relativePath, targetFileNameWebp)}`))
-    );
-
-    // JPEG
-    processingTasks.push(
-      image
-        .resize({ width: size })
-        .jpeg({ quality: jpegQuality })
-        .toFile(targetPathJpeg)
-        .then(() => console.log(`Generated: ${path.join(relativePath, targetFileNameJpeg)}`))
-    );
+async function runAllJobs() {
+  console.log('Starting image optimization process...');
+  for (const job of optimizationJobs) {
+    await processJob(job);
   }
-
-  return Promise.all(processingTasks);
+  console.log('All image optimization jobs completed.');
 }
 
 // --- Run Script ---
-optimizeImages();
+runAllJobs();

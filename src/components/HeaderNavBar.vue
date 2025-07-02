@@ -4,24 +4,21 @@
     
       <div class="logo-title">
         <picture>
-  <source v-if="logoImages[0].webp && logoImages[0].webp.length"
-    :srcset="logoImages[0].webp.map((w, i) => w + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
-    type="image/webp"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <source v-if="logoImages[0].jpeg && logoImages[0].jpeg.length"
-    :srcset="logoImages[0].jpeg.map((j, i) => j + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
-    type="image/png"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <img
-    v-if="logoImages[0].fallback"
-    :src="logoImages[0].fallback"
-    alt="Transylvania Tour Guide Logo"
-    class="logo"
-    loading="lazy"
-  />
-</picture>
+          <source 
+            type="image/webp" 
+            srcset="/images/logo-img/ttg-logo-160w.webp 1x, /images/logo-img/ttg-logo-320w.webp 2x"
+          />
+          <source 
+            type="image/png" 
+            srcset="/images/logo-img/ttg-logo-160w.png 1x, /images/logo-img/ttg-logo-320w.png 2x"
+          />
+          <img
+            src="/images/logo-img/ttg-logo-160w.png"
+            alt="Transylvania Tour Guide Logo"
+            class="logo"
+            loading="lazy"
+          />
+        </picture>
         <span class="site-title">Transylvania Tour Guide</span>
       </div>
       <transition name="fade">
@@ -55,8 +52,7 @@
 </template>
 
 <script setup>
-import { images as logoImages } from '../assets/logo-images/logoImages.js';
-import { ref, onMounted, computed, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
 const menuItems = [
