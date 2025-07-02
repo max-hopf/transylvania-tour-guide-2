@@ -1,8 +1,25 @@
 <template>
-  <section class="hero-section" id="hero">
+  <section id="hero" class="hero-section">
     <HeaderNavBar />
-    <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImageUrl})` }"></div>
-    <!-- <div class="hero-overlay"> -->
+    <picture class="hero-background parallax-hero-bg">
+      <source
+        type="image/webp" 
+        :srcset="webpSrcset"
+        sizes="100vw"
+        class="parallax-hero-bg"
+      />
+      <source 
+        type="image/jpeg" 
+        :srcset="jpegSrcset"
+        sizes="100vw"
+        class="parallax-hero-bg"
+      />
+      <img
+        :src="fallbackSrc"
+        alt="A scenic view of the Transylvanian landscape at dusk."
+        class="parallax-hero-bg hero-background-img"
+      />
+    </picture>
     <div class="hero-content">
       <h1
         :class="[
@@ -58,11 +75,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import heroImageUrl from '../assets/hero-img.jpg'
+import { ref, onMounted, computed } from 'vue'
 import HeaderNavBar from './HeaderNavBar.vue';
-// import SocialMediaButtons from './SocialMediaButtons.vue';
-// import { images as heroImages } from './heroImages.js';
+
+// --- Hero Image Configuration ---
+const heroImageSizes = [640, 1024, 1280, 1920];
+const heroImageBaseName = 'hero-img';
+const heroImageDir = '/images/hero-img/';
+
+const generateSrcset = (format) => {
+  return heroImageSizes
+    .map(size => `${heroImageDir}${heroImageBaseName}-${size}w.${format} ${size}w`)
+    .join(', ');
+};
+
+const webpSrcset = computed(() => generateSrcset('webp'));
+const jpegSrcset = computed(() => generateSrcset('jpeg'));
+const fallbackSrc = computed(() => `${heroImageDir}${heroImageBaseName}-1280w.jpeg`);
+// --- End Hero Image Configuration ---
 
 const showTitle = ref(false)
 const showTopText = ref(false)
@@ -108,10 +138,16 @@ onMounted(() => {
   box-sizing: border-box;
 }
 
-.hero-content {
+.hero-background-img {
+  width: 100%;
+  height: 100%;
+  /* This is the key fix: it makes the image cover the area without stretching */
+  object-fit: cover;
+}
+
+.hero-content {  
   color: var(--color-text-light);
   text-align: center;
-  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,20 +156,18 @@ onMounted(() => {
 }
 
 .hero-title {
-  /* Fluid typography: scales from 2.2rem to 4rem based on viewport width */
-  font-size: clamp(2.2rem, 5vw + 1rem, 4rem); /* font-size: 2.8rem; */
+  font-size: clamp(2.2rem, 5vw + 1rem, 4rem);
   font-weight: bold;
   color: var(--color-text-light);
   text-shadow:
     0 1px 6px rgba(0, 0, 0, 1),
     0 1px 12px rgba(0, 0, 0, 1);
   margin: 0;
-  word-break: break-word; /* Ensure long words wrap */
+  word-break: break-word;
 }
 
 .hero-top-text {
-  /* Fluid typography: scales from 1.2rem to 1.8rem */
-  font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.8rem); /* font-size: 1.4rem; */
+  font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.8rem);
   font-weight: 600;
   color: var(--color-text-light);
   letter-spacing: 0.04em;
@@ -154,19 +188,17 @@ onMounted(() => {
   color: var(--color-text-dark-strong);
   font-weight: 600;
   border: none;
-  border-radius: 5rem; /* Large radius for pill shape */
+  border-radius: 5rem;
   padding: 0.75rem 1.75rem;
-  /* Fluid font size for the button text */
-  font-size: clamp(1.1rem, 2vw + 0.5rem, 1.2rem); /* font-size: 1rem; */
+  font-size: clamp(1.1rem, 2vw + 0.5rem, 1.2rem);
   cursor: pointer;
   transition: filter 0.2s;
   justify-content: center;
   align-items: center;
-  gap: 0.75em; /* Use em to scale gap with font-size */
+  gap: 0.75em;
 }
 
 .lucide-phone-call-icon {
-  /* Use em to scale the icon relative to the button's font size */
   width: 1.2em;
   height: 1.2em;
 }
@@ -327,11 +359,13 @@ onMounted(() => {
     opacity 2s cubic-bezier(0.4, 0, 0.2, 1),
     transform 2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .instant-visible {
   opacity: 1 !important;
   transform: scale(1) !important;
   transition: none !important;
 }
+
 .hero-title,
 .hero-top-text,
 .hero-phone-number.cta-btn {

@@ -26,6 +26,16 @@ const optimizationJobs = [
       { format: 'webp', quality: 95 },
     ],
   },
+  {
+    name: 'Hero Image',
+    sourceDir: 'src/assets/image-originals/hero-img',
+    outputDir: 'public/images/hero-img',
+    sizes: [640, 1024, 1280, 1920],
+    formats: [
+      { format: 'jpeg', quality: 85 },
+      { format: 'webp', quality: 90 },
+    ],
+  },
 ];
 
 // --- Script --- //
