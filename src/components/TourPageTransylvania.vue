@@ -4,11 +4,11 @@
   description="Designed to explore the major attractions and uncover the authentic charm of Transylvania."
   :backgroundImage="heroImg"
 />
-  <!-- <DetailsPageEssentialsSection
+  <TourPageEssentialsSection
     duration="3 days"
     price="from 790 € / person"
     groupSize="2 – 7 participants"
-  /> -->
+  />
 
   <section class="activity-details-section overview-section">
     <div class="activity-details-container">
@@ -39,7 +39,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
 import FooterSection from './FooterSection.vue';
 import heroImg from '../assets/tour-page-title-images/transylvania-title-img.jpg';
 import TourPageHeroSection from './TourPageHeroSection.vue';
-// import DetailsPageEssentialsSection from './DetailsPageEssentialsSection.vue';
+import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 // import DetailsPageGallery from './DetailsPageGallery.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
 

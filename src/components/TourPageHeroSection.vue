@@ -28,8 +28,7 @@ const props = defineProps({
 .activity-details-hero-section {
   position: relative;
   overflow: hidden;
-  min-height: 32rem;
-  max-height: 32rem;  
+  height: 34rem; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -55,7 +54,7 @@ const props = defineProps({
 }
 
 .activity-details-container {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: auto;
   background: transparent;
   text-align: left;
