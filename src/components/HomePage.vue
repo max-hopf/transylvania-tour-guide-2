@@ -41,6 +41,8 @@
       </p>
     </div> -->
     <AboutUsSection />
+    <OurToursSection />
+    <TestimonialsSection />
     <ContactSection />
   </div> 
   <FooterSection />
@@ -55,6 +57,7 @@ import FooterSection from './FooterSection.vue'
 import HeroSection from './HeroSection.vue'
 import ContactSection from './ContactSection.vue'
 import AboutUsSection from './AboutUsSection.vue'
+import TestimonialsSection from './TestimonialsSection.vue'
 
 const tourTabs = ref([
   {

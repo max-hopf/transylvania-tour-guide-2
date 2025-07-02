@@ -148,7 +148,7 @@ async function sendEmail(event) {
 
 <style scoped>
 .contact-section {
-  background: var(--color-background-light-soft);
+  background: var(--color-background-light-softer-tone);
   padding: 8rem 1rem 8rem 1rem;
   text-align: center;
   scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
