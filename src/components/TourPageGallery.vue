@@ -12,7 +12,7 @@
       >
         <div
           v-for="(img, idx) in row"
-          :key="img.src + idx"
+          :key="img.baseName + idx"
           class="gallery-item"
           :style="{
             width: img.displayWidth + 'px',
@@ -20,7 +20,26 @@
             marginRight: idx < row.length - 1 ? gap + 'px' : 0
           }"
         >
-          <img :src="img.src" :alt="img.alt || ''" loading="lazy" :style="{width: '100%', height: '100%', objectFit: 'cover'}" />
+          <picture>
+            <source
+              type="image/webp"
+              :srcset="generateSrcset(img.baseName, 'webp')"
+              :sizes="imageSizesAttribute"
+            />
+            <source
+              type="image/jpeg"
+              :srcset="generateSrcset(img.baseName, 'jpg')"
+              :sizes="imageSizesAttribute"
+            />
+            <img
+              :src="generateFallbackSrc(img.baseName)"
+              :srcset="generateSrcset(img.baseName, 'jpg')"
+              :sizes="imageSizesAttribute"
+              :alt="img.alt || 'A photo from the Transylvania tour'" 
+              loading="lazy" 
+              :style="{width: '100%', height: '100%', objectFit: 'cover'}" 
+            />
+          </picture>
         </div>
       </div>
     </div>
@@ -28,7 +47,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 
 const props = defineProps({
   images: {
@@ -38,68 +57,102 @@ const props = defineProps({
   }
 });
 
-// Configurable
-const rowHeight = 420; // px
-const gap = 8; // px
+// --- Image Generation Helpers ---
+const imageSizes = [480, 800, 1200];
+const imageDir = '/images/tour-page-gallery-transylvania/';
+const imageSizesAttribute = '(max-width: 400px) 80vw, (max-width: 800px) 45vw, (max-width: 1200px) 30vw, 25vw';
+
+function generateSrcset(baseName, format) {
+  return imageSizes
+    .map(size => `${imageDir}${baseName}-${size}w.${format} ${size}w`)
+    .join(', ');
+}
+
+function generateFallbackSrc(baseName) {
+  // Fallback to a medium-sized JPEG
+  return `${imageDir}${baseName}-800w.jpg`;
+}
+// --- End Helpers ---
+
+
+// --- Justified Layout Logic ---
+const rowHeight = 420; // Target row height in px
+const gap = 8; // Gap between images in px
 const containerRef = ref(null);
-const containerWidth = ref(1200); // fallback
-
-function getAspectRatio(img) {
-  // Try to infer from orientation, fallback to 3:2 or 2:3
-  if (img.orientation === 'landscape') return 3/2;
-  if (img.orientation === 'portrait') return 2/3;
-  return 1; // square
-}
-
-function computeRows(images, containerWidth, rowHeight, gap) {
-  const rows = [];
-  let row = [];
-  let rowAspectSum = 0;
-  for (let i = 0; i < images.length; i++) {
-    const img = images[i];
-    const aspect = getAspectRatio(img);
-    row.push({ ...img, _aspect: aspect });
-    rowAspectSum += aspect;
-    // Estimate total width if we add this image
-    const rowGap = gap * (row.length - 1);
-    const estRowWidth = rowAspectSum * rowHeight + rowGap;
-    if (estRowWidth >= containerWidth * 0.95 || i === images.length - 1) {
-      // Calculate actual row height for this row
-      const scale = (containerWidth - rowGap) / (rowAspectSum * rowHeight);
-      const displayRowHeight = rowHeight * scale;
-      rows.push(row.map(img => ({
-        ...img,
-        displayWidth: img._aspect * displayRowHeight,
-        displayHeight: displayRowHeight
-      })));
-      row = [];
-      rowAspectSum = 0;
-    }
-  }
-  return rows;
-}
-
+const containerWidth = ref(1200); // Default/fallback width
 const rows = ref([]);
 
-function updateRows() {
+function getAspectRatio(img) {
+  if (img.orientation === 'landscape') return 3 / 2;
+  if (img.orientation === 'portrait') return 2 / 3;
+  return 1; // Default to square
+}
+
+function computeRows(images, currentContainerWidth, targetRowHeight, gap) {
+  const allRows = [];
+  let currentRow = [];
+  let currentRowAspectSum = 0;
+
+  for (let i = 0; i < images.length; i++) {
+    const img = images[i];
+    const aspectRatio = getAspectRatio(img);
+    currentRow.push({ ...img, _aspect: aspectRatio });
+    currentRowAspectSum += aspectRatio;
+
+    const rowGap = gap * (currentRow.length - 1);
+    const estimatedRowWidth = currentRowAspectSum * targetRowHeight + rowGap;
+
+    // If the row is full enough or it's the last image, finalize the row
+    if (estimatedRowWidth >= currentContainerWidth * 0.95 || i === images.length - 1) {
+      const scaleFactor = (currentContainerWidth - rowGap) / (currentRowAspectSum * targetRowHeight);
+      const displayRowHeight = targetRowHeight * scaleFactor;
+
+      allRows.push(
+        currentRow.map(imageInRow => ({
+          ...imageInRow,
+          displayWidth: imageInRow._aspect * displayRowHeight,
+          displayHeight: displayRowHeight
+        }))
+      );
+
+      // Reset for the next row
+      currentRow = [];
+      currentRowAspectSum = 0;
+    }
+  }
+  return allRows;
+}
+
+function updateLayout() {
   if (!containerRef.value) return;
   containerWidth.value = containerRef.value.clientWidth;
   rows.value = computeRows(props.images, containerWidth.value, rowHeight, gap);
 }
 
 onMounted(() => {
-  window.addEventListener('resize', updateRows);
-  setTimeout(updateRows, 50); // after mount
+  // Initial layout calculation
+  const observer = new ResizeObserver(updateLayout);
+  if (containerRef.value) {
+    observer.observe(containerRef.value);
+  }
+  
+  // Also listen to window resize as a fallback
+  window.addEventListener('resize', updateLayout);
+  
+  // Run once after mount to ensure layout is correct
+  setTimeout(updateLayout, 50); 
 });
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateRows);
-});
-watch(() => props.images, updateRows);
 
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateLayout);
+  // The ResizeObserver will be disconnected automatically when the component is unmounted.
+});
+
+// Re-calculate layout if the images prop changes
+watch(() => props.images, updateLayout, { deep: true });
 </script>
 
 <style scoped>
-
 .details-page-gallery {
   width: 100%;
   display: flex;
@@ -109,7 +162,6 @@ watch(() => props.images, updateRows);
   align-items: center;
   padding: 1rem 0;
 }
-
 .gallery-label {
   font-size: 1.05rem;
   color: var(--color-text-highlight);
@@ -150,51 +202,12 @@ watch(() => props.images, updateRows);
   background: var(--color-background-light);
   overflow: hidden;
   display: block;
-  /* border-radius: 8px; */
 }
-.gallery-item {
-  /* border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08); */
-  background: #fff;
-  overflow: hidden;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-}
+.gallery-item picture,
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-}
-.gallery-item.portrait {
-  grid-row: span 5;
-  grid-column: span 1;
-}
-.gallery-item.landscape {
-  grid-column: span 1;
-  grid-row: span 2;
-}
-.gallery-item.square {
-  /* default: 1x1 */
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 24vw;
-  }
-}
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 48vw;
-  }
-  .gallery-item.portrait, .gallery-item.landscape {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
 }
 </style>

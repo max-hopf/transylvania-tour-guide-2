@@ -43,101 +43,50 @@ import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
 import TourPageGallery from './TourPageGallery.vue';
 
-import img01 from '../assets/tour-page-gallery-transylvania/1655912594818_l.jpg';
-import img02 from '../assets/tour-page-gallery-transylvania/20191023_213139_p.jpg';
-import img03 from '../assets/tour-page-gallery-transylvania/20200128_203722_l.jpg';
-import img04 from '../assets/tour-page-gallery-transylvania/20220604_154243_l.jpg';
-import img05 from '../assets/tour-page-gallery-transylvania/20220612_122104_l.jpg';
-import img06 from '../assets/tour-page-gallery-transylvania/20220612_125717_l.jpg';
-import img07 from '../assets/tour-page-gallery-transylvania/20220618_113254_l.jpg';
-import img08 from '../assets/tour-page-gallery-transylvania/20220622_185158_l.jpg';
-import img09 from '../assets/tour-page-gallery-transylvania/20220622_190541_l.jpg';
-import img10 from '../assets/tour-page-gallery-transylvania/20220817_112536_p.jpg';
-import img11 from '../assets/tour-page-gallery-transylvania/20220829_094900_p.jpg';
-import img12 from '../assets/tour-page-gallery-transylvania/20220829_131008_p.jpg';
-import img13 from '../assets/tour-page-gallery-transylvania/20230128_132646_p.jpg';
-import img14 from '../assets/tour-page-gallery-transylvania/20231102_120356_l.jpg';
-import img15 from '../assets/tour-page-gallery-transylvania/20240104_141725_l.jpg';
-import img16 from '../assets/tour-page-gallery-transylvania/20240104_141958_p.jpg';
-import img17 from '../assets/tour-page-gallery-transylvania/20240520_152930_l.jpg';
-import img18 from '../assets/tour-page-gallery-transylvania/20240520_170712_l.jpg';
-import img19 from '../assets/tour-page-gallery-transylvania/20240615_125832_l.jpg';
-import img20 from '../assets/tour-page-gallery-transylvania/20240615_155557_l.jpg';
-import img21 from '../assets/tour-page-gallery-transylvania/20240930_204935_l.jpg';
-import img22 from '../assets/tour-page-gallery-transylvania/20240930_205752_p.jpg';
-import img23 from '../assets/tour-page-gallery-transylvania/20241001_105424_l.jpg';
-import img24 from '../assets/tour-page-gallery-transylvania/20241001_170020_l.jpg';
-import img25 from '../assets/tour-page-gallery-transylvania/20241001_191237_p.jpg';
-import img26 from '../assets/tour-page-gallery-transylvania/20241002_131812_l.jpg';
-import img27 from '../assets/tour-page-gallery-transylvania/20241002_165931_l.jpg';
-import img28 from '../assets/tour-page-gallery-transylvania/20241003_193157_p.jpg';
-import img29 from '../assets/tour-page-gallery-transylvania/20241005_202713_p.jpg';
-import img30 from '../assets/tour-page-gallery-transylvania/20241021_120955_p.jpg';
-import img31 from '../assets/tour-page-gallery-transylvania/IMG_20220613_084523_930_s.jpg';
-
+// The galleryImages array now contains metadata instead of imported modules.
+// This data will be used by the TourPageGallery component to construct responsive image tags.
 const galleryImages = [
-  { src: img15, alt: '', orientation: 'landscape' },
-  { src: img16, alt: '', orientation: 'portrait' },
-  { src: img03, alt: '', orientation: 'landscape' },
-  { src: img02, alt: '', orientation: 'portrait' },
-  { src: img01, alt: '', orientation: 'landscape' },
-  { src: img04, alt: '', orientation: 'landscape' },
-  { src: img10, alt: '', orientation: 'portrait' },
-  { src: img06, alt: '', orientation: 'landscape' },
-  { src: img11, alt: '', orientation: 'portrait' },
-  { src: img09, alt: '', orientation: 'landscape' },
-  { src: img07, alt: '', orientation: 'landscape' },
-  { src: img05, alt: '', orientation: 'landscape' },
-  { src: img12, alt: '', orientation: 'portrait' },
-  { src: img08, alt: '', orientation: 'landscape' },
-  { src: img13, alt: '', orientation: 'portrait' },
-  { src: img14, alt: '', orientation: 'landscape' },
-  { src: img17, alt: '', orientation: 'landscape' },
-  { src: img22, alt: '', orientation: 'portrait' },
-  { src: img29, alt: '', orientation: 'portrait' },
-  { src: img31, alt: '', orientation: 'portrait' },
-  { src: img18, alt: '', orientation: 'landscape' },
-  { src: img19, alt: '', orientation: 'landscape' },
-  { src: img20, alt: '', orientation: 'landscape' },
-  { src: img21, alt: '', orientation: 'landscape' },
-  { src: img30, alt: '', orientation: 'portrait' },
-  { src: img25, alt: '', orientation: 'portrait' },
-  { src: img23, alt: '', orientation: 'landscape' },
-  { src: img28, alt: '', orientation: 'portrait' },
-  { src: img27, alt: '', orientation: 'landscape' },
-  { src: img24, alt: '', orientation: 'landscape' },
-  { src: img26, alt: '', orientation: 'landscape' },
+  { baseName: '20240104_141725_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20240104_141958_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20200128_203722_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20191023_213139_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '1655912594818_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220604_154243_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220817_112536_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20220612_125717_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220829_094900_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20220622_190541_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220618_113254_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220612_122104_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220829_131008_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20220622_185158_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20230128_132646_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20231102_120356_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20240520_152930_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20240930_205752_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20241005_202713_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: 'IMG_20220613_084523_930_s', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20240520_170712_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20240615_125832_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20240615_155557_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20240930_204935_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20241021_120955_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20241001_191237_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20241001_105424_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20241003_193157_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
+  { baseName: '20241002_165931_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20241001_170020_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20241002_131812_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
 ];
+
 const transylvaniaTabs = [
   {
     label: `What’s Included`,
-    content: `<ul>
-      <li>Full-time guide/driver</li>
-      <li>All transportation in a modern, comfortable vehicle</li>
-      <li>2 nights’ accommodation with breakfast</li>
-      <li>Entrance fees</li>
-      <li>Bottled water provided during transfers</li>
-    </ul>`
+    content: `<ul>\n      <li>Full-time guide/driver</li>\n      <li>All transportation in a modern, comfortable vehicle</li>\n      <li>2 nights’ accommodation with breakfast</li>\n      <li>Entrance fees</li>\n      <li>Bottled water provided during transfers</li>\n    </ul>`
   },
   {
     label: `Highlights of the Tour`,
-    content: `You will visit Transylvania’s renowned cities: Brașov, Sibiu, and the Sighișoara Citadel, each featuring guided tours of their most significant landmarks.<br><br>
-    <strong>The standard itinerary includes:</strong><ul>
-      <li>Sighisoara Citadel</li>
-      <li>Viscri Village</li>
-      <li>Bran Castle</li>
-      <li>Transfăgărășan Road</li>
-      <li>Alba Iulia Citadel</li>
-    </ul><br>
-    <strong>The itinerary is flexible and can be customized to include additional sites such as:</strong>
-    <ul>
-      <li>Biertan Church</li>
-      <li>Turda Salt Mine</li>
-      <li>Libearty Bear Sanctuary</li>
-      <li>Peleș Castle</li>
-      <li>Corvin Castle</li>
-    </ul><br>
-    We can also arrange village walks and visits to meet local residents.`
+    content: `You will visit Transylvania’s renowned cities: Brașov, Sibiu, and the Sighișoara Citadel, each featuring guided tours of their most significant landmarks.<br><br>\n    <strong>The standard itinerary includes:</strong><ul>\n      <li>Sighisoara Citadel</li>\n      <li>Viscri Village</li>\n      <li>Bran Castle</li>\n      <li>Transfăgărășan Road</li>\n      <li>Alba Iulia Citadel</li>\n    </ul><br>\n    <strong>The itinerary is flexible and can be customized to include additional sites such as:</strong>\n    <ul>\n      <li>Biertan Church</li>\n      <li>Turda Salt Mine</li>\n      <li>Libearty Bear Sanctuary</li>\n      <li>Peleș Castle</li>\n      <li>Corvin Castle</li>\n    </ul><br>\n    We can also arrange village walks and visits to meet local residents.`
   
   },
   {
@@ -146,10 +95,7 @@ const transylvaniaTabs = [
   },
   {
     label: `Booking Policy`,
-    content: `<ul>
-      <li>A 30% deposit is required to secure your booking.</li>
-      <li>Cancellation policy: Full refund available for cancellations made at least 7 days before the tour start date.</li>
-    </ul>`
+    content: `<ul>\n      <li>A 30% deposit is required to secure your booking.</li>\n      <li>Cancellation policy: Full refund available for cancellations made at least 7 days before the tour start date.</li>\n    </ul>`
   }
 ];
 
