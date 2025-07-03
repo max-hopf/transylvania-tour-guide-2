@@ -3,6 +3,8 @@ import HomePage from '../components/HomePage.vue'
 import TourPageTransylvania from '../components/TourPageTransylvania.vue'
 import TourPageBucovina from '../components/TourPageBucovina.vue'
 import TourPageMaramures from '../components/TourPageMaramures.vue'
+import PrivacyPolicyPage from '../components/PrivacyPolicyPage.vue'
+import TermsAndConditionsPage from '../components/TermsAndConditionsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +36,16 @@ const router = createRouter({
       path: '/tour/maramures',
       name: 'tour-maramures',
       component: TourPageMaramures,
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: PrivacyPolicyPage,
+    },
+    {
+      path: '/terms-and-conditions',
+      name: 'terms-and-conditions',
+      component: TermsAndConditionsPage,
     },
   ],
   scrollBehavior(to, from, savedPosition) {
