@@ -1,7 +1,11 @@
 <template>
   <router-link class="tour-card" :to="tourLink" style="text-decoration: none; color: inherit">
     <div class="tour-img-wrapper">
-      <img :src="image" :alt="title" class="tour-img" loading="lazy" />
+            <picture>
+        <source :srcset="webpSrcset" type="image/webp" :sizes="imageSizes" />
+        <source :srcset="jpegSrcset" type="image/jpeg" :sizes="imageSizes" />
+        <img :src="fallbackSrc" :alt="title" class="tour-img" loading="lazy" />
+      </picture>
       <div class="tour-days-badge">
         <span class="days-number">{{ durationValue }}</span>
         <span class="days-label">{{ durationLabel }}</span>
@@ -24,18 +28,32 @@
 
 <script setup>
 import { computed } from 'vue'
+const imageSizes = '(max-width: 400px) 100vw, 23rem'
+
 const props = defineProps({
   title: { type: String, required: true },
   desc: { type: String, required: true },
   durationValue: { type: [String, Number], required: true },
   durationLabel: { type: String, required: true },
   price: { type: String, required: true },
-  image: { type: [String, Object], required: true },
+  image: { type: String, required: true },
 })
 
 function slugify(str) {
   return str.toLowerCase().replace(/\s+/g, '-')
 }
+
+const webpSrcset = computed(() => {
+  return `/images/tour-card-images/${props.image}-240w.webp 240w, /images/tour-card-images/${props.image}-480w.webp 480w, /images/tour-card-images/${props.image}-800w.webp 800w`
+})
+
+const jpegSrcset = computed(() => {
+  return `/images/tour-card-images/${props.image}-240w.jpeg 240w, /images/tour-card-images/${props.image}-480w.jpeg 480w, /images/tour-card-images/${props.image}-800w.jpeg 800w`
+})
+
+const fallbackSrc = computed(() => {
+  return `/images/tour-card-images/${props.image}-480w.jpeg`
+})
 
 const tourLink = computed(() => {
   const title = props.title.toLowerCase()

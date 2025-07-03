@@ -5,7 +5,7 @@
     <!-- <ProgressiveDisclosureInterface :tabs="tourTabs" /> -->
 
     <AboutUsSection />
-    <OurToursSection />
+    <ToursSection />
     <TestimonialsSection />
     <ContactSection />
   </div> 
@@ -16,7 +16,7 @@
 import { ref } from 'vue'
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue'
 import TourCard from './TourCard.vue'
-import OurToursSection from './OurToursSection.vue'
+import ToursSection from './ToursSection.vue'
 import FooterSection from './FooterSection.vue'
 import HeroSection from './HeroSection.vue'
 import ContactSection from './ContactSection.vue'

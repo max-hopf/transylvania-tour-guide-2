@@ -7,6 +7,16 @@ import { mkdirp } from 'mkdirp';
 
 const optimizationJobs = [
   {
+    name: 'Tour Card Images',
+    sourceDir: 'src/assets/image-originals/tour-card-images',
+    outputDir: 'public/images/tour-card-images',
+    sizes: [240, 480, 800],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 },
+    ],
+  },
+  {
     name: 'Tour Gallery',
     sourceDir: 'src/assets/image-originals/tour-page-gallery-transylvania',
     outputDir: 'public/images/tour-page-gallery-transylvania',

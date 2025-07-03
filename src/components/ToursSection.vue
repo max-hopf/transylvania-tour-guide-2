@@ -27,9 +27,6 @@
 <script setup>
 import TourCard from './TourCard.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import transylvaniaImg from '../assets/tour-card-images/transylvania.jpg'
-import maramuresImg from '../assets/tour-card-images/maramures.jpg'
-import bucovinaImg from '../assets/tour-card-images/bucovina.jpg'
 
 const activities = [
   {
@@ -38,7 +35,7 @@ const activities = [
     durationValue: 3,
     durationLabel: 'days',
     price: 'Start from 790 € / person',
-    image: transylvaniaImg,
+    image: 'transylvania',
   },
   {
     title: 'Maramures',
@@ -46,7 +43,7 @@ const activities = [
     durationValue: 3,
     durationLabel: 'days',
     price: 'Start from 590 € / person',
-    image: maramuresImg,
+    image: 'maramures',
   },
   {
     title: 'Bucovina',
@@ -54,7 +51,7 @@ const activities = [
     durationValue: 3,
     durationLabel: 'days',
     price: 'Start from 590 € / person',
-    image: bucovinaImg,
+    image: 'bucovina',
   },
 ]
 const activitiesSectionRef = ref(null)
