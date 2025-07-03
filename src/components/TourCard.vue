@@ -1,5 +1,5 @@
 <template>
-  <router-link class="tour-card" :to="tourLink" style="text-decoration: none; color: inherit">
+  <router-link class="tour-card" :to="tourLink" style="text-decoration: none; color: inherit" @mouseenter="preloadHeroImage">
     <div class="tour-img-wrapper">
             <picture>
         <source :srcset="webpSrcset" type="image/webp" :sizes="imageSizes" />
@@ -54,6 +54,29 @@ const jpegSrcset = computed(() => {
 const fallbackSrc = computed(() => {
   return `/images/tour-card-images/${props.image}-480w.jpeg`
 })
+
+function preloadHeroImage() {
+  const heroImageName = `${props.image}-title-img`;
+  const preloadId = `preload-hero-${heroImageName}`;
+
+  if (document.getElementById(preloadId)) {
+    return;
+  }
+
+  const link = document.createElement('link');
+  link.id = preloadId;
+  link.rel = 'preload';
+  link.as = 'image';
+
+  const webpSrcset = [640, 1024, 1280, 1920]
+    .map(size => `/images/tour-page-hero-images/${heroImageName}-${size}w.webp ${size}w`)
+    .join(', ');
+
+  link.imageSrcset = webpSrcset;
+  link.imageSizes = '100vw';
+
+  document.head.appendChild(link);
+}
 
 const tourLink = computed(() => {
   const title = props.title.toLowerCase()

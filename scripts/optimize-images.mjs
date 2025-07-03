@@ -46,6 +46,16 @@ const optimizationJobs = [
       { format: 'webp', quality: 90 },
     ],
   },
+  {
+    name: 'Tour Page Hero Images',
+    sourceDir: 'src/assets/image-originals/tour-page-hero-images',
+    outputDir: 'public/images/tour-page-hero-images',
+    sizes: [640, 1024, 1280, 1920],
+    formats: [
+      { format: 'jpeg', quality: 85 },
+      { format: 'webp', quality: 90 },
+    ],
+  },
 ];
 
 // --- Script --- //

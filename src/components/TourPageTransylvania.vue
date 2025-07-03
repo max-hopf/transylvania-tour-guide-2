@@ -2,7 +2,7 @@
   <TourPageHeroSection
   title="Transylvania Tour from Cluj-Napoca"
   description="Designed to explore the major attractions and uncover the authentic charm of Transylvania."
-  :backgroundImage="heroImg"
+  imageName="transylvania-title-img"
 />
   <TourPageEssentialsSection
     duration="3 days"
@@ -37,7 +37,7 @@
 <script setup>
 import HeaderNavBar from './HeaderNavBar.vue';
 import FooterSection from './FooterSection.vue';
-import heroImg from '../assets/tour-page-title-images/transylvania-title-img.jpg';
+
 import TourPageHeroSection from './TourPageHeroSection.vue';
 import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
