@@ -35,7 +35,11 @@
         </span>
       </a>
       <div class="tripadvisor-certificate-wrapper">
-        <img :src="tripCert" alt="Tripadvisor Certificate of Excellence 2019" class="tripadvisor-certificate-img" />
+        <picture>
+          <source srcset="/images/testimonial-images/tripadvisor-certificate-2019-400w.webp 400w, /images/testimonial-images/tripadvisor-certificate-2019-800w.webp 800w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+          <source srcset="/images/testimonial-images/tripadvisor-certificate-2019-400w.jpeg 400w, /images/testimonial-images/tripadvisor-certificate-2019-800w.jpeg 800w" type="image/jpeg" sizes="(max-width: 600px) 200px, 300px">
+          <img src="/images/testimonial-images/tripadvisor-certificate-2019-400w.jpeg" alt="Tripadvisor Certificate of Excellence 2019" class="tripadvisor-certificate-img" loading="lazy" />
+        </picture>
       </div>
     </div>
   </section>
@@ -43,7 +47,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import tripCert from '../assets/testimonial-images/tripadvisor-certificate-2019.png';
+
 
 const testimonials = [
   {

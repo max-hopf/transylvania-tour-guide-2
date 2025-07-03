@@ -114,14 +114,14 @@
         <h4 class="footer-title">ANPC & Payments</h4>
         <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="anpc-logo-link">
           <img
-            src="/src/assets/footer-images/anpc-sal.svg"
+            src="/images/footer-images/anpc-sal.svg"
             alt="ANPC Alternative Dispute Resolution"
             class="anpc-logo"
           />
         </a>
         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="anpc-logo-link">
           <img
-            src="/src/assets/footer-images/anpc-sol.svg"
+            src="/images/footer-images/anpc-sol.svg"
             alt="ANPC SOL - Online Dispute Resolution"
             class="anpc-logo"
           />
@@ -131,15 +131,15 @@
           <li><a href="https://anpc.ro/obligatii-clienti/" target="_blank" rel="noopener">Client Obligations</a></li>
         </ul> -->
         <div class="footer-payments">
-          <img src="/src/assets/footer-images/Visa.svg" alt="Visa" class="payment-icon" />
+          <img src="/images/footer-images/Visa.svg" alt="Visa" class="payment-icon" />
           <img
-            src="/src/assets/footer-images/Mastercard.svg"
+            src="/images/footer-images/Mastercard.svg"
             alt="Mastercard"
             class="payment-icon"
           />
-          <img src="/src/assets/footer-images/PayPal.svg" alt="PayPal" class="payment-icon" />
+          <img src="/images/footer-images/PayPal.svg" alt="PayPal" class="payment-icon" />
           <img
-            src="/src/assets/footer-images/Google-Pay.svg"
+            src="/images/footer-images/Google-Pay.svg"
             alt="Google Pay"
             class="payment-icon"
           />

@@ -15,13 +15,15 @@
       </div>
       <div class="about-images">
         <picture>
-  <source :srcset="aboutImg1Webp" type="image/webp" />
-  <img :src="aboutImg1" :alt="'Hiking in Transylvania'" class="about-img about-img-left" loading="lazy" />
-</picture>
-<picture>
-  <source :srcset="aboutImg2Webp" type="image/webp" />
-  <img :src="aboutImg2" :alt="'Discovering nature'" class="about-img about-img-right" loading="lazy" />
-</picture>
+          <source srcset="/images/about-images/about-us-1-400w.webp 400w, /images/about-images/about-us-1-800w.webp 800w" type="image/webp" sizes="(max-width: 992px) 40vw, 512px">
+          <source srcset="/images/about-images/about-us-1-400w.jpeg 400w, /images/about-images/about-us-1-800w.jpeg 800w" type="image/jpeg" sizes="(max-width: 992px) 40vw, 512px">
+          <img src="/images/about-images/about-us-1-400w.jpeg" alt="Hiking in Transylvania" class="about-img about-img-left" loading="lazy" />
+        </picture>
+        <picture>
+          <source srcset="/images/about-images/about-us-2-400w.webp 400w, /images/about-images/about-us-2-800w.webp 800w" type="image/webp" sizes="(max-width: 992px) 40vw, 512px">
+          <source srcset="/images/about-images/about-us-2-400w.jpeg 400w, /images/about-images/about-us-2-800w.jpeg 800w" type="image/jpeg" sizes="(max-width: 992px) 40vw, 512px">
+          <img src="/images/about-images/about-us-2-400w.jpeg" alt="Discovering nature" class="about-img about-img-right" loading="lazy" />
+        </picture>
       </div>
     </div>
     </div>
@@ -30,10 +32,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import aboutImg1 from '../assets/about-images/about-us-1.png';
-import aboutImg2 from '../assets/about-images/about-us-2.png';
-import aboutImg1Webp from '../assets/about-images/about-us-1.webp';
-import aboutImg2Webp from '../assets/about-images/about-us-2.webp';
+
 
 const aboutSectionRef = ref(null);
 const aboutAnimRef = ref(null);

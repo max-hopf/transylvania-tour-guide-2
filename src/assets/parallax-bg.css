@@ -1,6 +1,6 @@
 /* Parallax background for activities and blog sections using hero image */
-/* background-image: url('../assets/hero-img.jpg'); */
 .parallax-hero-bg {
+  background-image: url('/images/hero-img-1920w.webp');
   position: fixed;
   top: 0;
   left: 0;

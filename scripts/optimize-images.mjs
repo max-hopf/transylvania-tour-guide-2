@@ -2,19 +2,42 @@ import sharp from 'sharp';
 import fs from 'fs/promises';
 import path from 'path';
 import { mkdirp } from 'mkdirp';
+import { optimize as svgoOptimize } from 'svgo';
 
 // --- Configuration --- //
 
-const optimizationJobs = [
+const imageOptimizationJobs = [
   {
     name: 'Tour Card Images',
     sourceDir: 'src/assets/image-originals/tour-card-images',
     outputDir: 'public/images/tour-card-images',
     sizes: [240, 480, 800],
     formats: [
-      { format: 'jpeg', quality: 80 },
-      { format: 'webp', quality: 85 },
+      { format: 'jpeg', quality: 85 },
+      { format: 'webp', quality: 90 },
     ],
+  },
+  {
+    name: 'About Us Images',
+    sourceDir: 'src/assets/image-originals/about-images',
+    outputDir: 'public/images/about-images',
+    sizes: [400, 800],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 }
+    ],
+    fileFilter: (file) => file.endsWith('.png'),
+  },
+  {
+    name: 'Testimonial Images',
+    sourceDir: 'src/assets/image-originals/testimonial-images',
+    outputDir: 'public/images/testimonial-images',
+    sizes: [400, 800, 1600],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 }
+    ],
+    fileFilter: (file) => file.endsWith('.png'),
   },
   {
     name: 'Tour Gallery',
@@ -30,7 +53,7 @@ const optimizationJobs = [
     name: 'Logo',
     sourceDir: 'src/assets/image-originals/logo-img',
     outputDir: 'public/images/logo-img',
-    sizes: [160, 320], // 1x and 2x for high-DPI screens
+    sizes: [160, 320], 
     formats: [
       { format: 'png', quality: 90 },
       { format: 'webp', quality: 95 },
@@ -58,13 +81,32 @@ const optimizationJobs = [
   },
 ];
 
+const svgOptimizationJobs = [
+  {
+    name: 'Footer SVGs',
+    sourceDir: 'src/assets/image-originals/footer-images',
+    outputDir: 'public/images/footer-images',
+    fileFilter: (file) => file.endsWith('.svg'),
+  },
+  {
+    name: 'Testimonial SVGs',
+    sourceDir: 'src/assets/image-originals/testimonial-images',
+    outputDir: 'public/images/testimonial-images',
+    fileFilter: (file) => file.endsWith('.svg'),
+  }
+];
+
 // --- Script --- //
 
-async function processJob(job) {
-  console.log(`--- Starting Job: ${job.name} ---`);
+async function processImageJob(job) {
+  console.log(`--- Starting Image Job: ${job.name} ---`);
   try {
     await mkdirp(job.outputDir);
-    const files = await fs.readdir(job.sourceDir);
+    let files = await fs.readdir(job.sourceDir);
+
+    if (job.fileFilter) {
+      files = files.filter(job.fileFilter);
+    }
 
     for (const file of files) {
       const sourcePath = path.join(job.sourceDir, file);
@@ -85,7 +127,7 @@ async function processJob(job) {
         }
       }
     }
-    console.log(`--- Finished Job: ${job.name} ---\n`);
+    console.log(`--- Finished Image Job: ${job.name} ---\n`);
   } catch (error) {
     if (error.code === 'ENOENT') {
       console.warn(`Source directory not found for job '${job.name}': ${job.sourceDir}. Skipping.`);
@@ -95,13 +137,48 @@ async function processJob(job) {
   }
 }
 
-async function runAllJobs() {
-  console.log('Starting image optimization process...');
-  for (const job of optimizationJobs) {
-    await processJob(job);
+async function processSvgJob(job) {
+  console.log(`--- Starting SVG Job: ${job.name} ---`);
+  try {
+    await mkdirp(job.outputDir);
+    let files = await fs.readdir(job.sourceDir);
+
+    if (job.fileFilter) {
+      files = files.filter(job.fileFilter);
+    }
+
+    for (const file of files) {
+      const sourcePath = path.join(job.sourceDir, file);
+      const fileStats = await fs.stat(sourcePath);
+      if (fileStats.isDirectory() || !file.endsWith('.svg')) continue;
+      
+      console.log(`Optimizing ${file}...`);
+
+      const svgContent = await fs.readFile(sourcePath, 'utf-8');
+      const { data: optimizedSvg } = svgoOptimize(svgContent);
+      
+      const targetPath = path.join(job.outputDir, file);
+      await fs.writeFile(targetPath, optimizedSvg);
+    }
+    console.log(`--- Finished SVG Job: ${job.name} ---\n`);
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.warn(`Source directory not found for SVG job '${job.name}': ${job.sourceDir}. Skipping.`);
+    } else {
+      console.error(`Error processing SVG job '${job.name}':`, error);
+    }
   }
-  console.log('All image optimization jobs completed.');
 }
 
-// --- Run Script ---
+async function runAllJobs() {
+  console.log('Starting image optimization process...');
+  for (const job of imageOptimizationJobs) {
+    await processImageJob(job);
+  }
+  for (const job of svgOptimizationJobs) {
+    await processSvgJob(job);
+  }
+  console.log('--- All optimization jobs finished. ---');
+}
+
 runAllJobs();
