@@ -140,7 +140,7 @@ html {
   position: absolute;
   top: 0;
   left: 0; 
-  width: 100vw;
+  width: 100%;
   z-index: 2000;  
   transition: background 0.35s cubic-bezier(.4,0,.2,1);
 }
@@ -258,7 +258,7 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: var(--color-background-light-mute);
     padding: 4rem 0 2rem 0;
