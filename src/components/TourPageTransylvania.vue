@@ -29,7 +29,7 @@
 
   <ProgressiveDisclosureInterface :tabs="transylvaniaTabs" />
     
-    <TourPageGallery :images="galleryImages" />
+    <TourPageGallery :images="galleryImages" galleryName="transylvania" />
 
   <FooterSection />
 </template>

@@ -50,6 +50,27 @@ const imageOptimizationJobs = [
     ],
   },
   {
+    name: 'Bucovina Tour Gallery',
+    sourceDir: 'src/assets/image-originals/tour-page-gallery-bucovina',
+    outputDir: 'public/images/tour-page-gallery-bucovina',
+    sizes: [480, 800, 1200],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 },
+    ],
+  },
+  {
+    name: 'Maramures Tour Gallery',
+    sourceDir: 'src/assets/image-originals/tour-page-gallery-maramures',
+    outputDir: 'public/images/tour-page-gallery-maramures',
+    sizes: [480, 800, 1200],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 },
+    ],
+    fileFilter: (file) => !file.endsWith('.heic'),
+  },
+  {
     name: 'Logo',
     sourceDir: 'src/assets/image-originals/logo-img',
     outputDir: 'public/images/logo-img',

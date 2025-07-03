@@ -20,7 +20,7 @@
 
   <ProgressiveDisclosureInterface :tabs="bucovinaTabs" />
 
-  <!-- <DetailsPageGallery :images="galleryImages" /> -->
+  <TourPageGallery :images="galleryImages" galleryName="bucovina" />
 
   <FooterSection />
 </template>
@@ -33,36 +33,20 @@ import TourPageHeroSection from './TourPageHeroSection.vue';
 import TourPageGallery from './TourPageGallery.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
 
-
-// Import all images from detailsPageGalleryBucovina
-// import img01 from '../assets/detailsPageGalleryBucovina/1660902684259_l.jpg';
-// import img02 from '../assets/detailsPageGalleryBucovina/20230428_174131_p.jpg';
-// import img03 from '../assets/detailsPageGalleryBucovina/20230430_171243_l.jpg';
-// import img04 from '../assets/detailsPageGalleryBucovina/20230501_100744_l.jpg';
-// import img05 from '../assets/detailsPageGalleryBucovina/20230627_102455_l.jpg';
-// import img06 from '../assets/detailsPageGalleryBucovina/20240404_174445_p.jpg';
-// import img07 from '../assets/detailsPageGalleryBucovina/20240405_111741_p.jpg';
-// import img08 from '../assets/detailsPageGalleryBucovina/20240405_111837_p.jpg';
-// import img09 from '../assets/detailsPageGalleryBucovina/20240727_190617_p.jpg';
-// import img10 from '../assets/detailsPageGalleryBucovina/20240914_162445_l.jpg';
-// import img11 from '../assets/detailsPageGalleryBucovina/20240915_170504_p.jpg';
-// import img12 from '../assets/detailsPageGalleryBucovina/20241015_100725_p.jpg';
-
-// Build galleryImages array for Bucovina
-// const galleryImages = [
-//   { src: img01, alt: '', orientation: 'landscape' }, // 1660902684259_l.jpg
-//   { src: img02, alt: '', orientation: 'portrait' }, // 20230428_174131_p.jpg
-//   { src: img03, alt: '', orientation: 'landscape' }, // 20230430_171243_l.jpg
-//   { src: img04, alt: '', orientation: 'landscape' }, // 20230501_100744_l.jpg
-//   { src: img05, alt: '', orientation: 'landscape' }, // 20230627_102455_l.jpg
-//   { src: img06, alt: '', orientation: 'portrait' }, // 20240404_174445_p.jpg
-//   { src: img07, alt: '', orientation: 'portrait' }, // 20240405_111741_p.jpg
-//   { src: img08, alt: '', orientation: 'portrait' }, // 20240405_111837_p.jpg
-//   { src: img09, alt: '', orientation: 'portrait' }, // 20240727_190617_p.jpg
-//   { src: img10, alt: '', orientation: 'landscape' }, // 20240914_162445_l.jpg
-//   { src: img11, alt: '', orientation: 'portrait' }, // 20240915_170504_p.jpg
-//   { src: img12, alt: '', orientation: 'portrait' }, // 20241015_100725_p.jpg
-// ];
+const galleryImages = [
+  { baseName: '1660902684259_l', alt: 'A scenic view of Bucovina', orientation: 'landscape' },
+  { baseName: '20230428_174131_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+  { baseName: '20230430_171243_l', alt: 'A scenic view of Bucovina', orientation: 'landscape' },
+  { baseName: '20230501_100744_l', alt: 'A scenic view of Bucovina', orientation: 'landscape' },
+  { baseName: '20230627_102455_l', alt: 'A scenic view of Bucovina', orientation: 'landscape' },
+  { baseName: '20240404_174445_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+  { baseName: '20240405_111741_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+  { baseName: '20240405_111837_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+  { baseName: '20240727_190617_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+  { baseName: '20240914_162445_l', alt: 'A scenic view of Bucovina', orientation: 'landscape' },
+  { baseName: '20240915_170504_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+  { baseName: '20241015_100725_p', alt: 'A scenic view of Bucovina', orientation: 'portrait' },
+];
 
 const bucovinaTabs = [
   {
