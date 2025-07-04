@@ -197,11 +197,6 @@ onBeforeUnmount(() => {
     gap: 0.5rem;
     /* width: 120px; */
   }
-  .social-btn {
-    /* width: 120px; */
-    /* height: 44px; */
-    /* padding: 0.5rem 0.5rem 0.5rem 0.5rem; */
-  }
   .social-label {
     width: 0;
     margin-left: 0;
