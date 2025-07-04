@@ -63,7 +63,7 @@ const props = defineProps({
 
 // --- Image Generation Helpers ---
 const imageSizes = [480, 800, 1200];
-const imageDir = `/images/tour-page-gallery-${props.galleryName}/`;
+const imageDir = `${import.meta.env.BASE_URL}images/tour-page-gallery-${props.galleryName}/`;
 const imageSizesAttribute = '(max-width: 400px) 80vw, (max-width: 800px) 45vw, (max-width: 1200px) 30vw, 25vw';
 
 function generateSrcset(baseName, format) {

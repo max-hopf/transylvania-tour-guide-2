@@ -27,15 +27,16 @@ const props = defineProps({
   imageName: { type: String, required: true },
 });
 
+const imageBasePath = `${import.meta.env.BASE_URL}images/tour-page-hero-images/`;
 const createSrcset = (format) => {
   return [640, 1024, 1280, 1920]
-    .map(size => `/images/tour-page-hero-images/${props.imageName}-${size}w.${format} ${size}w`)
+    .map(size => `${imageBasePath}${props.imageName}-${size}w.${format} ${size}w`)
     .join(', ');
 };
 
 const webpSrcset = computed(() => createSrcset('webp'));
 const jpegSrcset = computed(() => createSrcset('jpeg'));
-const fallbackSrc = computed(() => `/images/tour-page-hero-images/${props.imageName}-640w.jpeg`);
+const fallbackSrc = computed(() => `${imageBasePath}${props.imageName}-640w.jpeg`);
 </script>
 
 <style scoped>

@@ -43,17 +43,18 @@ function slugify(str) {
   return str.toLowerCase().replace(/\s+/g, '-')
 }
 
+const imageBasePath = `${import.meta.env.BASE_URL}images/tour-card-images/`;
 const webpSrcset = computed(() => {
-  return `/images/tour-card-images/${props.image}-240w.webp 240w, /images/tour-card-images/${props.image}-480w.webp 480w, /images/tour-card-images/${props.image}-800w.webp 800w`
-})
+  return `${imageBasePath}${props.image}-240w.webp 240w, ${imageBasePath}${props.image}-480w.webp 480w, ${imageBasePath}${props.image}-800w.webp 800w`
+});
 
 const jpegSrcset = computed(() => {
-  return `/images/tour-card-images/${props.image}-240w.jpeg 240w, /images/tour-card-images/${props.image}-480w.jpeg 480w, /images/tour-card-images/${props.image}-800w.jpeg 800w`
-})
+  return `${imageBasePath}${props.image}-240w.jpeg 240w, ${imageBasePath}${props.image}-480w.jpeg 480w, ${imageBasePath}${props.image}-800w.jpeg 800w`
+});
 
 const fallbackSrc = computed(() => {
-  return `/images/tour-card-images/${props.image}-480w.jpeg`
-})
+  return `${imageBasePath}${props.image}-480w.jpeg`
+});
 
 function preloadHeroImage() {
   const heroImageName = `${props.image}-title-img`;
@@ -68,8 +69,9 @@ function preloadHeroImage() {
   link.rel = 'preload';
   link.as = 'image';
 
+  const heroImageBasePath = `${import.meta.env.BASE_URL}images/tour-page-hero-images/`;
   const webpSrcset = [640, 1024, 1280, 1920]
-    .map(size => `/images/tour-page-hero-images/${heroImageName}-${size}w.webp ${size}w`)
+    .map(size => `${heroImageBasePath}${heroImageName}-${size}w.webp ${size}w`)
     .join(', ');
 
   link.imageSrcset = webpSrcset;
