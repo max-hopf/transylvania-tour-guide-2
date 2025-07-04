@@ -2,7 +2,7 @@
   <header class="header-navbar">
     <nav class="navbar">
     
-      <div class="logo-title">
+      <a href="#hero" class="logo-title" @click="onMenuClick($event, '#hero')" aria-label="Go to homepage">
         <picture>
           <source 
             type="image/webp" 
@@ -20,7 +20,7 @@
           />
         </picture>
         <span class="site-title">Transylvania Tour Guide</span>
-      </div>
+      </a>
       <transition name="fade">
         <ul v-if="isMenuOpen && !isDesktop" class="nav-menu-overlay" aria-label="Main navigation">
           <li v-for="item in menuItems" :key="item.href">
@@ -162,6 +162,8 @@ html {
 .logo-title {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .logo {
