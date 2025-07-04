@@ -151,7 +151,7 @@ async function sendEmail(event) {
   background: var(--color-background-light-softer-tone);
   padding: 8rem 1rem 8rem 1rem;
   text-align: center;
-  scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
+  scroll-margin-top: -4rem; 
 }
 .contact-label {
   font-weight: 600;
@@ -356,6 +356,12 @@ button[type="submit"]:hover {
   color: var(--color-text-dark) !important;
   text-decoration: none;
   text-align: left;
+}
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 4rem 1rem 4rem 1rem;
+    scroll-margin-top: -2rem;
+  }
 }
 @media (max-width: 600px) {
   .contact-container {

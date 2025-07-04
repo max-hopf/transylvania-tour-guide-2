@@ -104,7 +104,7 @@ function slugify(title) {
   background: transparent;
   padding: 8rem 1rem 8rem 1rem;
   text-align: center;
-  scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
+  scroll-margin-top: -4rem;
 }
 .activities-grid {
   display: flex;
@@ -146,6 +146,7 @@ function slugify(title) {
   }
   .activities-section {
     padding: 4rem 1rem 4rem 1rem;
+    scroll-margin-top: -2rem;
   }
 }
 @media (max-width: 600px) {
