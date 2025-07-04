@@ -32,6 +32,7 @@
     <TourPageGallery :images="galleryImages" galleryName="transylvania" />
 
   <FooterSection />
+  <BackToTopButton />
 </template>
 
 <script setup>
@@ -42,7 +43,7 @@ import TourPageHeroSection from './TourPageHeroSection.vue';
 import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
 import TourPageGallery from './TourPageGallery.vue';
-
+import BackToTopButton from './BackToTopButton.vue';
 // The galleryImages array now contains metadata instead of imported modules.
 // This data will be used by the TourPageGallery component to construct responsive image tags.
 const galleryImages = [
@@ -103,7 +104,7 @@ const transylvaniaTabs = [
 
 <style scoped>
 .activity-details-section {
-  background: #fff;
+  background: var(--color-background-light);
   padding: 4rem 2rem 4rem 2rem;
   color: var(--color-text-dark);
 }
@@ -117,9 +118,12 @@ const transylvaniaTabs = [
   display: block;
   height: 0.5rem;
 }
+.activity-details-container strong {
+  font-weight: 600 !important;
+}
 
 .activity-details-intro {
   text-align: left;
-  color: #222;
+  color: var(--color-text-dark);
 }
 </style>

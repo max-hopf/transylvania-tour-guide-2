@@ -92,19 +92,13 @@
     </div>
   </section>
   <FooterSection />
+  <BackToTopButton />
 </template>
 
-<script>
+<script setup>
 import HeaderNavBar from './HeaderNavBar.vue';
 import FooterSection from './FooterSection.vue';
-
-export default {
-  name: 'TermsAndConditionsPage',
-  components: {
-    HeaderNavBar,
-    FooterSection
-  }
-}
+import BackToTopButton from './BackToTopButton.vue';
 </script>
 
 <style scoped>
@@ -134,20 +128,20 @@ export default {
   background: var(--color-background-light);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   font-size: 1.0rem;
   color: var(--color-text-dark);
   line-height: 1.7;
 }
 .terms-content h1 {
-  font-size: 2.2rem;
+  font-size: clamp(1.2rem, 1.2rem + 2vw, 2.2rem);
   font-weight: 600;
   margin-bottom: 2rem;
   color: var(--color-text-dark);
   text-align: center;
 }
 .terms-content h2 {
-  font-size: 1.25rem;
+  font-size: clamp(1.0rem, 1.0rem + 2vw, 1.7rem);
   font-weight: 600;
   margin-top: 2.2rem;
   margin-bottom: 0.5rem;
@@ -167,18 +161,12 @@ export default {
 .terms-content b {
   font-weight: 700;
 }
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .terms-content {
     padding: 18px 5vw;
-    font-size: 0.98rem;
-  }
-  .terms-content h1 {
-    font-size: 1.2rem;
-  }
-  .terms-content h2 {
     font-size: 1rem;
   }
-}
+} */
 
 .header-navbar {
   position: relative;

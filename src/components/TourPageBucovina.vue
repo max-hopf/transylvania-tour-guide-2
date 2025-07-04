@@ -23,6 +23,7 @@
   <TourPageGallery :images="galleryImages" galleryName="bucovina" />
 
   <FooterSection />
+  <BackToTopButton />
 </template>
 
 <script setup>
@@ -32,6 +33,7 @@ import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 import TourPageHeroSection from './TourPageHeroSection.vue';
 import TourPageGallery from './TourPageGallery.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
+import BackToTopButton from './BackToTopButton.vue';
 
 const galleryImages = [
   { baseName: '1660902684259_l', alt: 'A scenic view of Bucovina', orientation: 'landscape' },
@@ -90,9 +92,9 @@ const bucovinaTabs = [
 
 <style scoped>
 .activity-details-section {
-  background: #fff;
+  background: var(--color-background-light);
   padding: 4rem 2rem 4rem 2rem;
-  color: #222;
+  color: var(--color-text-dark);
 }
 .activity-details-container {
   max-width: 75ch;
@@ -104,10 +106,13 @@ const bucovinaTabs = [
   display: block;
   height: 0.5rem;
 }
+.activity-details-container strong {
+  font-weight: 600 !important;
+}
 
 .activity-details-intro {
   text-align: left;
-  color: #222;
+  color: var(--color-text-dark);
 }
 </style>
 

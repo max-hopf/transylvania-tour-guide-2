@@ -311,4 +311,8 @@ onUnmounted(() => {
 :deep(.accordion-content li) {
   text-align: left;
 }
+:deep(.tab-content strong),
+:deep(.accordion-content strong) {
+  font-weight: 600 !important;
+}
 </style>

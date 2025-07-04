@@ -1,7 +1,7 @@
 <template>
   <div class="home-page-content">
     <HeroSection />
-
+    
     <!-- <ProgressiveDisclosureInterface :tabs="tourTabs" /> -->
 
     <AboutUsSection />
@@ -10,10 +10,12 @@
     <ContactSection />
   </div> 
   <FooterSection />
+  <BackToTopButton />
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import BackToTopButton from './BackToTopButton.vue'
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue'
 import TourCard from './TourCard.vue'
 import ToursSection from './ToursSection.vue'

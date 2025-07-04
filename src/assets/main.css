@@ -1,5 +1,6 @@
 @import './base.css';
 @import './parallax-bg.css';
+@import './animations.css';
 
 #app {
   /* max-width: 1280px; */

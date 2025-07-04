@@ -25,6 +25,7 @@
   <TourPageGallery :images="galleryImages" galleryName="maramures" />
 
   <FooterSection />
+  <BackToTopButton />
 </template>
 
 <script setup>
@@ -34,7 +35,7 @@ import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 import TourPageHeroSection from './TourPageHeroSection.vue';
 import TourPageGallery from './TourPageGallery.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
-
+import BackToTopButton from './BackToTopButton.vue';
 
 const galleryImages = [
   { baseName: '1659594400829_l', alt: 'A scenic view of Maramures', orientation: 'landscape' },
@@ -110,9 +111,9 @@ const maramuresTabs = [
 
 <style scoped>
 .activity-details-section {
-  background: #fff;
+  background: var(--color-background-light);
   padding: 4rem 2rem 4rem 2rem;
-  color: #222;
+  color: var(--color-text-dark);
 }
 .activity-details-container {
   max-width: 75ch;
@@ -124,9 +125,12 @@ const maramuresTabs = [
   display: block;
   height: 0.5rem;
 }
+.activity-details-container strong {
+  font-weight: 600 !important;
+}
 
 .activity-details-intro {
   text-align: left;
-  color: #222;
+  color: var(--color-text-dark);;
 }
 </style>

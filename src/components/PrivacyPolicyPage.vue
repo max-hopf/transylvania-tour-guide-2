@@ -113,11 +113,13 @@
   </div>
   </section>
   <FooterSection />
+  <BackToTopButton />
 </template>
 
 <script setup>
 import HeaderNavBar from './HeaderNavBar.vue';
 import FooterSection from './FooterSection.vue';
+import BackToTopButton from './BackToTopButton.vue';
 </script>
 
 <style scoped>
@@ -143,19 +145,19 @@ import FooterSection from './FooterSection.vue';
   background: var(--color-background-light);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   overflow-wrap: break-word;
 }
 
 .privacy-policy-section h1 {
-  font-size: 2.2rem;
+  font-size: clamp(1.2rem, 1.2rem + 2vw, 2.2rem);
   font-weight: 600;
   margin-bottom: 2rem;
   color: var(--color-text-dark);
   text-align: center;
 }
 .privacy-policy-section h2 {
-  font-size: 1.25rem;
+  font-size: clamp(1.0rem, 1.0rem + 2vw, 1.7rem);
   font-weight: 600;
   margin-top: 2.2rem;
   margin-bottom: 0.5rem;
