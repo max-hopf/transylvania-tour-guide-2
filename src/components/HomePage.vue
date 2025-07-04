@@ -11,6 +11,7 @@
   </div> 
   <FooterSection />
   <BackToTopButton />
+  <SocialMediaButtons />
 </template>
 
 <script setup>
@@ -24,6 +25,7 @@ import HeroSection from './HeroSection.vue'
 import ContactSection from './ContactSection.vue'
 import AboutUsSection from './AboutUsSection.vue'
 import TestimonialsSection from './TestimonialsSection.vue'
+import SocialMediaButtons from './SocialMediaButtons.vue'
 
 const tourTabs = ref([
   {
