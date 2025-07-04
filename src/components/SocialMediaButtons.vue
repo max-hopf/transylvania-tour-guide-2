@@ -188,7 +188,7 @@ onBeforeUnmount(() => {
 .social-btn.tripadvisor:hover .social-label {
   color: #fff;
 }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .social-media-buttons {
     position: absolute;
     top: unset;

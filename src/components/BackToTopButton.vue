@@ -113,7 +113,7 @@ onUnmounted(() => {
 @media (max-width: 480px) {
   .back-to-top-btn {
     right: 1rem;
-    bottom: 1rem;
+    bottom: 3rem;
   }
   .back-to-top-btn svg {
     width: 2rem;

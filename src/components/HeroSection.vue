@@ -134,7 +134,7 @@ onMounted(() => {
   justify-content: center;
   overflow: hidden;
   margin: 0;
-  padding: 2rem 1rem; /* Optimized padding for smaller screens */
+  padding: 8rem 3rem 2rem 3rem; /* Optimized padding for smaller screens */
   box-sizing: border-box;
 }
 
@@ -153,6 +153,9 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+
+  position: relative;
+  bottom: 4vh;
 }
 
 .hero-title {
