@@ -81,7 +81,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
 // --- Hero Image Configuration ---
 const heroImageSizes = [640, 1024, 1280, 1920];
 const heroImageBaseName = 'hero-img';
-const heroImageDir = '/images/hero-img/';
+const heroImageDir = `${import.meta.env.BASE_URL}images/hero-img/`;
 
 const generateSrcset = (format) => {
   return heroImageSizes
