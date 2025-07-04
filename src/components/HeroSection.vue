@@ -155,7 +155,7 @@ onMounted(() => {
   gap: 1rem;
 
   position: relative;
-  bottom: 4vh;
+  bottom: 12vh;
 }
 
 .hero-title {
