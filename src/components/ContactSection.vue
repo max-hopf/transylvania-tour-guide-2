@@ -266,6 +266,11 @@ async function sendEmail(event) {
   border-color: var(--color-text-highlight);
 }
 
+.consent-group input[type="checkbox"]:focus {
+  outline: 2px solid black;
+
+}
+
 .consent-group input[type="checkbox"]:checked::after {
   content: '';
   position: absolute;

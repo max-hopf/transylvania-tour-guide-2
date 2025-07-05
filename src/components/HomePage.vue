@@ -1,6 +1,7 @@
 <template>
   <div class="home-page-content">
     <HeroSection />
+    <SocialMediaButtons />
     
     <!-- <ProgressiveDisclosureInterface :tabs="tourTabs" /> -->
 
@@ -11,7 +12,6 @@
   </div> 
   <FooterSection />
   <BackToTopButton />
-  <SocialMediaButtons />
 </template>
 
 <script setup>
