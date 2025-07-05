@@ -25,7 +25,7 @@
           <input type="checkbox" id="consent" v-model="consentGiven" required />
           <label for="consent">
             I consent to having this website store my submitted information so they can respond to my inquiry. 
-            <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <router-link to="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</router-link>
           </label>
         </div>
         <div class="form-actions">
@@ -241,15 +241,48 @@ async function sendEmail(event) {
   gap: 0.7rem;
   margin-bottom: 0.9rem;
 }
+/* Styling for the checkbox to ensure consistent appearance */
 .consent-group input[type="checkbox"] {
   margin-top: 0rem;
-  accent-color: #fea700;
+  accent-color: var(--color-text-highlight);
   width: 1.5rem;
   height: 1.5rem;
   min-width: 1.5rem;
   min-height: 1.5rem;
   cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  background: white;
 }
+
+.consent-group input[type="checkbox"]:checked {
+  accent-color: var(--color-text-highlight);
+  /* background-color: var(--color-text-highlight); */
+  /* background-color: var(--color-text-highlight); */
+  /* border-color: var(--color-text-highlight); */
+}
+/* 
+.consent-group input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0.25rem;
+  width: 0.4rem;
+  height: 0.8rem;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+} */
+
+/* .consent-group input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
+} */
+
+/* Remove default focus styles in Firefox */
+/* .consent-group input[type="checkbox"]:-moz-focusring {
+  outline: none;
+} */
 .consent-group label {
   font-weight: 400;
   font-size: 1rem;
