@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" class="hero-section">
+  <section id="hero" class="hero-section" ref="heroSectionRef">
     <HeaderNavBar />
     <picture class="hero-background parallax-hero-bg">
       <source
@@ -78,6 +78,8 @@
 import { ref, onMounted, computed } from 'vue'
 import HeaderNavBar from './HeaderNavBar.vue';
 
+const heroSectionRef = ref(null);
+
 // --- Hero Image Configuration ---
 const heroImageSizes = [640, 1024, 1280, 1920];
 const heroImageBaseName = 'hero-img';
@@ -100,6 +102,11 @@ const showCTA = ref(false)
 const animationDisabled = ref(false)
 
 onMounted(() => {
+  // JS-based fix for mobile viewport height jump on scroll
+  if (heroSectionRef.value) {
+    heroSectionRef.value.style.minHeight = `${window.innerHeight}px`;
+  }
+
   if (localStorage.getItem('heroAnimated')) {
     animationDisabled.value = true
     showTitle.value = true
@@ -128,7 +135,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   height: auto; /* Allow height to grow based on content */
-  min-height: max(100svh, 32rem); /* Use max() to ensure a minimum height of 600px */
+  /* min-height is now set by JS to avoid mobile browser jump */
   display: flex;
   align-items: center;
   justify-content: center;
