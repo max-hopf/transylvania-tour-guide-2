@@ -243,23 +243,39 @@ async function sendEmail(event) {
 }
 /* Styling for the checkbox to ensure consistent appearance */
 .consent-group input[type="checkbox"] {
-  margin-top: 0rem;
-  accent-color: var(--color-text-highlight);
-  width: 1.5rem;
-  height: 1.5rem;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  margin-top: 0.1rem;
+  margin-right: 0.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  min-width: 1.4rem;
+  min-height: 1.4rem;
+  border: 2px solid var(--color-border-dark-mute);
+  border-radius: 4px;
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
   background: white;
+  vertical-align: middle;
 }
 
 .consent-group input[type="checkbox"]:checked {
-  accent-color: var(--color-text-highlight);
-  /* background-color: var(--color-text-highlight); */
-  /* background-color: var(--color-text-highlight); */
-  /* border-color: var(--color-text-highlight); */
+  background-color: var(--color-text-highlight);
+  border-color: var(--color-text-highlight);
+}
+
+.consent-group input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 0.475rem;
+  top: 0.175rem; 
+  width: 0.5rem;
+  height: 0.9rem;
+  border: solid var(--color-text-dark);
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
 }
 /* 
 .consent-group input[type="checkbox"]:checked::after {
