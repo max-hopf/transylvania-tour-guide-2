@@ -36,8 +36,8 @@
       </a>
       <div class="tripadvisor-certificate-wrapper">
         <picture>
-          <source srcset="/images/testimonial-images/tripadvisor-certificate-2019-400w.webp 400w, /images/testimonial-images/tripadvisor-certificate-2019-800w.webp 800w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
-          <source srcset="/images/testimonial-images/tripadvisor-certificate-2019-400w.jpeg 400w, /images/testimonial-images/tripadvisor-certificate-2019-800w.jpeg 800w" type="image/jpeg" sizes="(max-width: 600px) 200px, 300px">
+          <source srcset="/images/testimonial-images/tripadvisor-certificate-2019-400w.webp 400w, /images/testimonial-images/tripadvisor-certificate-2019-800w.webp 800w" type="image/webp">
+          <source srcset="/images/testimonial-images/tripadvisor-certificate-2019-400w.jpeg 400w, /images/testimonial-images/tripadvisor-certificate-2019-800w.jpeg 800w" type="image/jpeg">
           <img src="/images/testimonial-images/tripadvisor-certificate-2019-400w.jpeg" alt="Tripadvisor Certificate of Excellence 2019" class="tripadvisor-certificate-img" loading="lazy" />
         </picture>
       </div>
@@ -234,6 +234,7 @@ onBeforeUnmount(() => {
   align-items: center;
   margin-bottom:0;
 }
+
 .tripadvisor-certificate-img {
   max-width: 24rem;
   width: 100%;
