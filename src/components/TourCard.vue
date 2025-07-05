@@ -1,5 +1,5 @@
 <template>
-  <router-link class="tour-card" :to="tourLink" style="text-decoration: none; color: inherit" @mouseenter="preloadHeroImage">
+  <router-link ref="tourCardRef" class="tour-card" :to="tourLink" style="text-decoration: none; color: inherit" @mouseenter="preloadHeroImage">
     <div class="tour-img-wrapper">
             <picture>
         <source :srcset="webpSrcset" type="image/webp" :sizes="imageSizes" />
@@ -27,8 +27,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-const imageSizes = '(max-width: 400px) 100vw, 23rem'
+import { computed, ref, onMounted } from 'vue'
+const imageSizes = '(max-width: 400px) 100vw, 23rem';
+const tourCardRef = ref(null);
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -79,6 +80,24 @@ function preloadHeroImage() {
 
   document.head.appendChild(link);
 }
+
+onMounted(() => {
+  if (!tourCardRef.value) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          preloadHeroImage();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '200px' } // Preload when the card is 200px away from the viewport
+  );
+
+  observer.observe(tourCardRef.value.$el);
+});
 
 const tourLink = computed(() => {
   const title = props.title.toLowerCase()
