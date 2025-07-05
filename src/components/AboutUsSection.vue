@@ -219,7 +219,7 @@ onBeforeUnmount(() => {
   background: var(--color-text-highlight);
   color: var(--color-text-dark);
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 1rem 1.75rem;
   font-size: 1.1rem;
   font-weight: 600;

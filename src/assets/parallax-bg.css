@@ -1,35 +1,30 @@
 /* Parallax background for activities and blog sections using hero image */
-/* background-image: url('../assets/hero-img.jpg'); */
 .parallax-hero-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  /* height: 100vh; */
+  height: 100vh; /* Use vh for full viewport height */
   z-index: -1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; /* Creates the parallax effect */
   opacity: 1;
   pointer-events: none;
   object-fit: cover;
 }
 
 /* 
-@media (max-width: 900px) {
+  On mobile devices, disable the fixed background attachment to prevent jumping.
+  The background will scroll with the content, which is a more reliable behavior.
+  We target touch devices or devices with a small screen width.
+*/
+@media (hover: none) and (pointer: coarse), (max-width: 900px) {
   .parallax-hero-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: -1;
-    opacity: 1;
-    pointer-events: none;
+    position: absolute; /* Position relative to the container (.hero-section) */
+    background-attachment: scroll; /* Allow background to scroll with the page */
+    height: 100%; /* Fill the container's height */
+    width: 100%; /* Fill the container's width */
   }
-} */
+}
