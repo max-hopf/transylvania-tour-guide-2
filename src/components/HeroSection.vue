@@ -43,7 +43,7 @@
       >
         The Land of Friendly Ghouls
       </div>
-      <div
+      <button
         :class="[
           'hero-phone-number',
           'cta-btn',
@@ -67,7 +67,7 @@
           <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
         </svg>
         <span class="hero-phone-number-text">+40-740-364-842</span>
-      </div>
+      </button>
     </div>
     <!-- </div> -->
     <!-- <SocialMediaButtons /> -->
@@ -104,7 +104,7 @@ const animationDisabled = ref(false)
 onMounted(() => {
   // JS-based fix for mobile viewport height jump on scroll
   if (heroSectionRef.value) {
-    heroSectionRef.value.style.minHeight = `${window.innerHeight}px`;
+    heroSectionRef.value.style.height = `${window.innerHeight}px`;
   }
 
   if (localStorage.getItem('heroAnimated')) {
@@ -134,8 +134,7 @@ onMounted(() => {
   position: relative;
   left: 0;
   right: 0;
-  height: auto; /* Allow height to grow based on content */
-  /* min-height is now set by JS to avoid mobile browser jump */
+  /* height is now set by JS to avoid mobile browser jump */
   display: flex;
   align-items: center;
   justify-content: center;
