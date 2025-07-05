@@ -266,9 +266,18 @@ async function sendEmail(event) {
   border-color: var(--color-text-highlight);
 }
 
-.consent-group input[type="checkbox"]:focus {
-  outline: 2px solid black;
+/* Only show focus outline for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .consent-group input[type="checkbox"]:focus {
+    outline: 2px solid black;
+  }
+}
 
+/* Hide focus outline on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .consent-group input[type="checkbox"]:focus {
+    outline: none;
+  }
 }
 
 .consent-group input[type="checkbox"]:checked::after {
