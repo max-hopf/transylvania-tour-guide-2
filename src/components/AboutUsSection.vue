@@ -215,6 +215,22 @@ onBeforeUnmount(() => {
     max-width: 100vw;
   }
 }
+.about-btn {
+  background: var(--color-text-highlight);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+  line-height: 1.5rem;
+}
+.about-btn:hover {
+  background: var(--color-text-highlight);
+  filter: brightness(1.1);
+}
 
 /* Mobile: font, full-width images/buttons, aspect ratio */
 @media (max-width: 600px) {

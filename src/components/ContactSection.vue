@@ -324,6 +324,7 @@ button[type="submit"] {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.18s;
+  line-height: 1.5rem;
 }
 button[type="submit"]:hover {
   background: var(--color-text-highlight);

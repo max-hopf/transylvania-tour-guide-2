@@ -197,7 +197,7 @@ onMounted(() => {
   color: var(--color-text-dark-strong);
   font-weight: 600;
   border: none;
-  border-radius: 5rem;
+  border-radius: 8px;
   padding: 0.75rem 1.75rem;
   font-size: clamp(1.1rem, 2vw + 0.5rem, 1.2rem);
   cursor: pointer;
@@ -205,6 +205,7 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   gap: 0.75em;
+  line-height: 1.5rem;
 }
 
 .lucide-phone-call-icon {
