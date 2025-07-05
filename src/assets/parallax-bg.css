@@ -3,8 +3,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh; /* Use vh for full viewport height */
+  /* width: 100vw; */
+  height: 100svh; /* Use vh for full viewport height */
   z-index: -1;
   background-size: cover;
   background-position: center;
@@ -20,11 +20,11 @@
   The background will scroll with the content, which is a more reliable behavior.
   We target touch devices or devices with a small screen width.
 */
-@media (hover: none) and (pointer: coarse), (max-width: 900px) {
+/* @media (hover: none) and (pointer: coarse), (max-width: 900px) {
   .parallax-hero-bg {
-    position: absolute; /* Position relative to the container (.hero-section) */
-    background-attachment: scroll; /* Allow background to scroll with the page */
-    height: 100%; /* Fill the container's height */
-    width: 100%; /* Fill the container's width */
+    position: absolute;
+    background-attachment: scroll; 
+    height: 100%;
+    width: 100%;
   }
-}
+} */
