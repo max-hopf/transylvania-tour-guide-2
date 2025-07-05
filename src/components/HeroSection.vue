@@ -128,7 +128,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   height: auto; /* Allow height to grow based on content */
-  min-height: max(100vh, 32rem); /* Use max() to ensure a minimum height of 600px */
+  min-height: max(100svh, 32rem); /* Use max() to ensure a minimum height of 600px */
   display: flex;
   align-items: center;
   justify-content: center;
