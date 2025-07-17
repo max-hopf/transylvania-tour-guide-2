@@ -104,6 +104,9 @@ const tourLink = computed(() => {
   if (title === 'transylvania') return '/tour/transylvania'
   if (title === 'maramures') return '/tour/maramures'
   if (title === 'bucovina') return '/tour/bucovina'
+  if (title === 'maramures and bucovina') return '/tour/maramures-bucovina'
+  if (title === 'cycling maramures') return '/tour/cycling-maramures'
+  if (title === 'bespoke tour') return '/tour/bespoke'
   return `/tour/${slugify(props.title)}`
 })
 </script>

@@ -2,7 +2,7 @@
   <section class="tabbed-interface-section">
     <div class="tabbed-interface">
       <!-- Desktop Tabs -->
-      <template v-if="!isMobile">
+      <template v-if="!isMobile && !forceAccordion">
         <div class="tabs" role="tablist">
           <button
             v-for="(tab, idx) in tabs"
@@ -23,7 +23,7 @@
         </div>
       </template>
       <!-- Mobile Accordion -->
-      <template v-else>
+      <template v-else-if="isMobile || forceAccordion">
         <div class="accordion">
           <div v-for="(tab, idx) in tabs" :key="tab.label" class="accordion-item">
             <button
@@ -94,6 +94,10 @@ const props = defineProps({
     type: Array,
     required: true,
     default: () => [],
+  },
+  forceAccordion: {
+    type: Boolean,
+    default: false,
   },
 })
 const activeTab = ref(0)
@@ -299,13 +303,13 @@ onUnmounted(() => {
 }
 
 /* Styling for v-html content */
-:deep(.tab-content ul),
+/* :deep(.tab-content ul),
 :deep(.accordion-content ul) {
   list-style-type: disc;
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
   padding-inline-start: 0px;
-}
+} */
 
 :deep(.tab-content li),
 :deep(.accordion-content li) {
@@ -314,5 +318,13 @@ onUnmounted(() => {
 :deep(.tab-content strong),
 :deep(.accordion-content strong) {
   font-weight: 600 !important;
+}
+
+:deep(.tab-content h3),
+:deep(.accordion-content h3) {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  margin-top: 2.25rem;
 }
 </style>

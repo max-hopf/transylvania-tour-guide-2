@@ -3,6 +3,9 @@ import HomePage from '../components/HomePage.vue'
 import TourPageTransylvania from '../components/TourPageTransylvania.vue'
 import TourPageBucovina from '../components/TourPageBucovina.vue'
 import TourPageMaramures from '../components/TourPageMaramures.vue'
+import TourPageMaramuresBucovina from '../components/TourPageMaramuresBucovina.vue'
+import TourPageCyclingMaramures from '../components/TourPageCyclingMaramures.vue'
+import TourPageBespoke from '../components/TourPageBespoke.vue'
 import PrivacyPolicyPage from '../components/PrivacyPolicyPage.vue'
 import TermsAndConditionsPage from '../components/TermsAndConditionsPage.vue'
 
@@ -36,6 +39,21 @@ const router = createRouter({
       path: '/tour/maramures',
       name: 'tour-maramures',
       component: TourPageMaramures,
+    },
+    {
+      path: '/tour/maramures-bucovina',
+      name: 'tour-maramures-bucovina',
+      component: TourPageMaramuresBucovina,
+    },
+    {
+      path: '/tour/cycling-maramures',
+      name: 'tour-cycling-maramures',
+      component: TourPageCyclingMaramures,
+    },
+    {
+      path: '/tour/bespoke',
+      name: 'tour-bespoke',
+      component: TourPageBespoke,
     },
     {
       path: '/privacy-policy',

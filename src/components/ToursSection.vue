@@ -53,6 +53,30 @@ const activities = [
     price: 'Start from 590 € / person',
     image: 'bucovina',
   },
+  {
+    title: 'Maramures and Bucovina',
+    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
+    durationValue: 5,
+    durationLabel: 'days',
+    price: 'Start from ? € / person',
+    image: 'maramures-bucovina',
+  },
+  {
+    title: 'Cycling Maramures',
+    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
+    durationValue: 8,
+    durationLabel: 'hours',
+    price: 'Start from ? € / person',
+    image: 'cycling',
+  },
+  {
+    title: 'Bespoke Tour',
+    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
+    durationValue: 3,
+    durationLabel: 'days',
+    price: 'Start from ? € / person',
+    image: 'bespoke',
+  },
 ]
 const activitiesSectionRef = ref(null)
 const activitiesAnimRef = ref(null)
