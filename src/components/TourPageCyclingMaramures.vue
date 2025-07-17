@@ -23,7 +23,7 @@
   </section>
 
   <ProgressiveDisclosureInterface :tabs="cyclingMaramuresTabs" force-accordion class="cycling-accordion" />
-  <TourPageGallery :images="galleryImages" galleryName="transylvania" />
+  <TourPageGallery :images="galleryImages" galleryName="maramures-cycling" />
 
   <FooterSection />
   <BackToTopButton />
@@ -38,40 +38,23 @@ import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
 import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
 import TourPageGallery from './TourPageGallery.vue';
 import BackToTopButton from './BackToTopButton.vue';
-// The galleryImages array now contains metadata instead of imported modules.
-// This data will be used by the TourPageGallery component to construct responsive image tags.
+// The galleryImages array contains metadata for the cycling tour gallery
+// This data will be used by the TourPageGallery component to construct responsive image tags
 const galleryImages = [
-  { baseName: '20240104_141725_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20240104_141958_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20200128_203722_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20191023_213139_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '1655912594818_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20220604_154243_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20220817_112536_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20220612_125717_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20220829_094900_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20220622_190541_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20220618_113254_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20220612_122104_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20220829_131008_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20220622_185158_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20230128_132646_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20231102_120356_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20240520_152930_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20240930_205752_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20241005_202713_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: 'IMG_20220613_084523_930_s', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20240520_170712_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20240615_125832_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20240615_155557_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20240930_204935_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20241021_120955_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20241001_191237_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20241001_105424_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20241003_193157_p', alt: 'A scenic view of Transylvania', orientation: 'portrait' },
-  { baseName: '20241002_165931_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20241001_170020_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
-  { baseName: '20241002_131812_l', alt: 'A scenic view of Transylvania', orientation: 'landscape' },
+  { baseName: '20220921_121407_l', alt: 'Cycling through the scenic landscapes of Maramureș', orientation: 'landscape' },
+  { baseName: '20230623_114842_l', alt: 'Bike tour group enjoying the countryside views', orientation: 'landscape' },
+  { baseName: 'IMG-20250206-WA0066_p', alt: 'Cyclist on a wooden bridge', orientation: 'portrait' },
+  { baseName: '20230707_144118_l', alt: 'Cyclist on a country road in Maramureș', orientation: 'landscape' },
+  // { baseName: '20230707_144119_l', alt: 'Scenic route through Maramureș countryside', orientation: 'landscape' },
+  { baseName: '2024-09-07_l', alt: 'Beautiful rural landscape perfect for cycling', orientation: 'landscape' },
+  { baseName: 'IMG-20250206-WA0018_p', alt: 'Cyclist enjoying the view of Maramureș hills', orientation: 'portrait' },
+  { baseName: '20240629_100328_l', alt: 'Group of cyclists on a country road', orientation: 'landscape' },
+  { baseName: 'IMG-20250206-WA0102_l', alt: 'Bike path through green fields', orientation: 'landscape' },
+  { baseName: 'IMG-20250206-WA0098_l', alt: 'Panoramic view of cycling route', orientation: 'landscape' },
+  { baseName: 'IMG-20250206-WA0114_l', alt: 'Mountain biking trail in Maramureș', orientation: 'landscape' },
+  { baseName: 'IMG-20250206-WA0023_p', alt: 'Bike tour group photo in traditional village', orientation: 'portrait' },
+  { baseName: 'IMG-20250206-WA0113_l', alt: 'Cyclists on a country road at sunset', orientation: 'landscape' },
+  // { baseName: '20240720_172046_p', alt: 'Cyclist taking a break with scenic backdrop', orientation: 'landscape' },
 ];
 
 const cyclingMaramuresTabs = [

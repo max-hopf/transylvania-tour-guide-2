@@ -35,7 +35,7 @@
               :src="generateFallbackSrc(img.baseName)"
               :srcset="generateSrcset(img.baseName, 'jpg')"
               :sizes="imageSizesAttribute"
-              :alt="img.alt || 'A photo from the Transylvania tour'" 
+              :alt="img.alt || 'A photo from a tour'" 
               loading="lazy" 
               :style="{width: '100%', height: '100%', objectFit: 'cover'}" 
             />

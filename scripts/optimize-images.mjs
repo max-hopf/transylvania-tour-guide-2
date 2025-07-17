@@ -71,6 +71,17 @@ const imageOptimizationJobs = [
     fileFilter: (file) => !file.endsWith('.heic'),
   },
   {
+    name: 'Maramures Cycling Tour Gallery',
+    sourceDir: 'src/assets/image-originals/tour-page-gallery-maramures-cycling',
+    outputDir: 'public/images/tour-page-gallery-maramures-cycling',
+    sizes: [480, 800, 1200],
+    formats: [
+      { format: 'jpeg', quality: 80 },
+      { format: 'webp', quality: 85 },
+    ],
+    fileFilter: (file) => !file.endsWith('.heic'),
+  },
+  {
     name: 'Logo',
     sourceDir: 'src/assets/image-originals/logo-img',
     outputDir: 'public/images/logo-img',
