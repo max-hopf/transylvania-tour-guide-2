@@ -5,7 +5,7 @@
     <div class="contact-label">
       Contact <span class="contact-label-line"></span>
     </div>
-    <h2 class="contact-title">Get In Touch With Us</h2>
+    <h2 class="contact-title">{{ title }}</h2>
     <div class="contact-container">
       <!-- <h3 class="contact-subtitle">Using The Form</h3> -->
       <form @submit="sendEmail" class="contact-form">
@@ -41,6 +41,13 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import emailjs from '@emailjs/browser';
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: 'Get In Touch With Us'
+  }
+});
 // import emailjs from 'emailjs-com';
 
 const name = ref('');
