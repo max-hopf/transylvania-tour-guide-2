@@ -7,10 +7,9 @@
         <div class="about-label">
           About Us <span class="about-label-line"></span>
         </div>
-        <h2 class="about-title">World Best Hikking Agency Company Since 2015.</h2>
+        <h2 class="about-title">See Romania Through Local Eyes</h2>
         <p class="about-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed dsedo eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan ldsdeceus vel facilisis. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+          Founded in 2015, transylvaniatourguide.com offers authentic, meaningful journeys through Transylvania, Maramureș, and Bucovina. Driven by passion and local insight, we craft private tours that go beyond sightseeing — connecting you with heritage, landscapes, and people. Based in Cluj-Napoca, we personalize every experience to your pace and interests. Join us and discover Romania through local eyes — unforgettable, genuine, and crafted with care.        </p>
         <router-link class="about-btn" to="/about">Read More</router-link>
       </div>
       <div class="about-images">
@@ -170,10 +169,13 @@ onBeforeUnmount(() => {
 /* Unified .about-img rules for DRYness */
 .about-img {
   width: 220px;
-  height: 320px;
+  height: 348px;
   border-radius: 18px;
   object-fit: cover;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  object-position: center;
+  background-color: var(--color-background-light-softer-tone);
+  /* padding: 0.5rem; */
+  /* box-shadow: 0 4px 16px rgba(0,0,0,0.12); */
 }
 
 .about-img-left {
