@@ -253,7 +253,7 @@ onBeforeUnmount(() => {
     width: 100%;
     height: auto;
     min-width: 120px;
-    aspect-ratio: 5/7;
+    aspect-ratio: 55/87;
   }
 
   .about-btn {
