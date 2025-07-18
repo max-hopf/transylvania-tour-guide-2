@@ -7,7 +7,7 @@
         <ul class="footer-links">
           <li><router-link to="/privacy-policy">Privacy Policy</router-link></li>
           <li><router-link to="/terms-and-conditions">Terms and Conditions</router-link></li>
-          <li><a href="#faq">FAQ</a></li>
+          <!-- <li><a href="#faq">FAQ</a></li> -->
         </ul>
       </div>
 
