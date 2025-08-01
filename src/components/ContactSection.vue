@@ -131,10 +131,10 @@ async function sendEmail(event) {
   isSubmitting.value = true;
   try {
     await emailjs.sendForm(
-      'service_9mup228', // Replace with your EmailJS service ID
-      'template_rjfe34l', // Replace with your EmailJS template ID
+      'Breb189A!', // Replace with your EmailJS service ID
+      'template_hlzeaue', // Replace with your EmailJS template ID
       event.target,
-      '9FJaaHQA-NwdXyMsx', // Replace with your EmailJS user/public key
+      'X3as6E9rCQJr1pdlb', // Replace with your EmailJS user/public key
     );
     localStorage.removeItem('tgDraftMessage');
     localStorage.removeItem('tgDraftName');
