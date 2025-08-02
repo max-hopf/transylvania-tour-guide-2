@@ -13,10 +13,16 @@
   <section class="activity-details-section overview-section">
     <div class="activity-details-container">
       <p class="activity-details-intro">
-        <strong>Why choose between Maramures and Bucovina when you can experience both?</strong><br /><div class="spacer"></div>
-          Our combined tour offers the perfect blend of Maramures' authentic village life with Bucovina's world-famous painted monasteries. This unique itinerary allows you to immerse yourself in the rich cultural heritage of both regions while enjoying a seamless travel experience between them.<br /><div class="spacer"></div>
-          By combining these two remarkable destinations, you'll save travel time and get a more comprehensive understanding of Romania's diverse traditions, landscapes, and history. Enjoy the convenience of a single, well-planned journey that captures the essence of both regions in one unforgettable trip.
-        </p>
+        <strong>Why choose between Maramures and Bucovina when you can experience both?</strong>
+      </p>
+      <div class="spacer"></div>
+      <p class="activity-details-intro">
+        Our combined tour offers the perfect blend of Maramures' authentic village life with Bucovina's world-famous painted monasteries. This unique itinerary allows you to immerse yourself in the rich cultural heritage of both regions while enjoying a seamless travel experience between them.
+      </p>
+      <div class="spacer"></div>
+      <p class="activity-details-intro">
+        By combining these two remarkable destinations, you'll save travel time and get a more comprehensive understanding of Romania's diverse traditions, landscapes, and history. Enjoy the convenience of a single, well-planned journey that captures the essence of both regions in one unforgettable trip.
+      </p>
       </div>
     </section>
 

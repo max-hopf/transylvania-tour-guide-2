@@ -29,7 +29,9 @@
           </label>
         </div>
         <div class="form-actions">
-          <button type="submit" :disabled="isSubmitting">Send Message</button>
+          <button type="submit" :disabled="isSubmitting" :class="{ 'sending': isSubmitting }">
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+          </button>
           <span v-if="draftSavedAt" class="draft-info">Draft saved at {{ formattedDraftTime }}</span>
         </div>
       </form>
@@ -131,8 +133,8 @@ async function sendEmail(event) {
   isSubmitting.value = true;
   try {
     await emailjs.sendForm(
-      'Breb189A!', // Replace with your EmailJS service ID
-      'template_hlzeaue', // Replace with your EmailJS template ID
+      'service_q1iejlx', // Replace with your EmailJS service ID
+      'template_juwtnn1', // Replace with your EmailJS template ID
       event.target,
       'X3as6E9rCQJr1pdlb', // Replace with your EmailJS user/public key
     );
@@ -356,17 +358,53 @@ button[type="submit"] {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: all 0.3s ease;
   line-height: 1.5rem;
+  /* min-width: 160px; */
+  /* text-transform: uppercase; */
+  letter-spacing: 0.5px;
+  position: relative;
 }
+
 button[type="submit"]:hover {
   background: var(--color-text-highlight);
-  filter: brightness(1.1);
+  opacity: 0.9;
 }
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+button[type="submit"].sending {
+  padding-right: 3rem;
+}
+
+button[type="submit"].sending::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
 .draft-info {
   font-size: 1rem;
   color: var(--color-text-dark-pale);
   margin-top: 0.2rem;
+  display: block;
+  text-align: center;
 }
 
 .alt-contact-list {

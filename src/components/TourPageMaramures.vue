@@ -13,8 +13,14 @@
   <section class="activity-details-section overview-section">
     <div class="activity-details-container">
       <p class="activity-details-intro">
-        <strong>Maramureș is one of the most authentic destinations to experience traditional Romanian culture and rural life.</strong><br /><div class="spacer"></div>
-        Here, locals have preserved the ancestral way of living—marked by time-honored traditions, skilled craftsmanship, and a self-sufficient, simple lifestyle that reflects deep cultural roots.<br /><div class="spacer"></div>
+        <strong>Maramureș is one of the most authentic destinations to experience traditional Romanian culture and rural life.</strong>
+      </p>
+      <div class="spacer"></div>
+      <p class="activity-details-intro">
+        Here, locals have preserved the ancestral way of living—marked by time-honored traditions, skilled craftsmanship, and a self-sufficient, simple lifestyle that reflects deep cultural roots.
+      </p>
+      <div class="spacer"></div>
+      <p class="activity-details-intro">
         Explore charming villages and iconic landmarks, take in the region’s picturesque landscapes, connect with welcoming locals, and enjoy wholesome, homegrown cuisine in the heart of the Romanian countryside.
       </p>
     </div>

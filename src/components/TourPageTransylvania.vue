@@ -15,21 +15,27 @@
       <p class="activity-details-intro">
         <strong>Transylvania is a land of timeless charm—where medieval castles and
           fortified towns meet rolling hills dotted with haystacks and untouched
-          wilderness.</strong><br /><div class="spacer"></div>
-          This enchanting region offers a rare glimpse into a way of life steeped
-          in tradition and natural beauty. Friendly locals will welcome you with
-          home-cooked meals prepared from their own gardens, often accompanied by
-          folk tales and stories passed down through generations.<br /><div class="spacer"></div>
-          On this tour, you will explore Transylvania’s most iconic sights and
-          immerse yourself in the very essence of what makes this region so
-          captivating and unforgettable.
-        </p>
-      </div>
-    </section>
+          wilderness.</strong>
+      </p>
+      <div class="spacer"></div>
+      <p class="activity-details-intro">
+        This enchanting region offers a rare glimpse into a way of life steeped
+        in tradition and natural beauty. Friendly locals will welcome you with
+        home-cooked meals prepared from their own gardens, often accompanied by
+        folk tales and stories passed down through generations.
+      </p>
+      <div class="spacer"></div>
+      <p class="activity-details-intro">
+        On this tour, you will explore Transylvania’s most iconic sights and
+        immerse yourself in the very essence of what makes this region so
+        captivating and unforgettable.
+      </p>
+    </div>
+  </section>
 
   <ProgressiveDisclosureInterface :tabs="transylvaniaTabs" />
     
-    <TourPageGallery :images="galleryImages" galleryName="transylvania" />
+  <TourPageGallery :images="galleryImages" galleryName="transylvania" />
 
   <FooterSection />
   <BackToTopButton />
