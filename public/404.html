@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // Get the current path and redirect to index.html with the path as a query parameter
+        const segment = 1; // Adjust this if your app is in a subdirectory
+        const locationSegments = window.location.pathname.split('/');
+        const basePath = locationSegments.slice(0, 1 + segment).join('/');
+        const appPath = locationSegments.slice(1 + segment).join('/');
+        
+        // Redirect to index.html with the path as a query parameter
+        const newPath = basePath + '/index.html' + (appPath ? '?p=/' + appPath : '');
+        window.location.href = newPath + window.location.search + window.location.hash;
+    </script>
+    <meta http-equiv="refresh" content="0;url=index.html">
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected, <a href="index.html">click here</a>.</p>
+</body>
+</html>
