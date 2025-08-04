@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/transylvania-tour-guide-2/',
+  base: '/',
   plugins: [
     vue(),
     vueDevTools(),
