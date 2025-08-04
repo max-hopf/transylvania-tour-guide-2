@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import HomePage from '../components/HomePage.vue'
 import TourPageTransylvania from '../components/TourPageTransylvania.vue'
 import TourPageBucovina from '../components/TourPageBucovina.vue'
@@ -17,6 +17,21 @@ if (typeof window !== 'undefined') {
     window.history.replaceState(null, '', path + window.location.hash);
   }
 }
+
+// Handle 404 redirects from GitHub Pages
+const handleRedirect = () => {
+  if (typeof window !== 'undefined') {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectPath = urlParams.get('redirect');
+    if (redirectPath) {
+      // Clean up the URL
+      const cleanUrl = window.location.origin + redirectPath;
+      window.history.replaceState({}, '', cleanUrl);
+      return decodeURIComponent(redirectPath);
+    }
+  }
+  return null;
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -80,5 +95,11 @@ const router = createRouter({
     return { top: 0 }
   },
 })
+
+// Check for redirect when the app initializes
+const redirectPath = handleRedirect();
+if (redirectPath) {
+  router.push(redirectPath);
+}
 
 export default router

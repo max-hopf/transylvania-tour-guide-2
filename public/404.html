@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        // Get the current path and redirect to index.html with the path as a query parameter
-        const segment = 1; // Adjust this if your app is in a subdirectory
-        const locationSegments = window.location.pathname.split('/');
-        const basePath = locationSegments.slice(0, 1 + segment).join('/');
-        const appPath = locationSegments.slice(1 + segment).join('/');
-        
-        // Redirect to index.html with the path as a query parameter
-        const newPath = basePath + '/index.html' + (appPath ? '?p=/' + appPath : '');
-        window.location.href = newPath + window.location.search + window.location.hash;
+      // Single Page Apps for GitHub Pages
+      (function() {
+        var segment = 0;
+        var l = window.location;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segment).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segment).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      })();
     </script>
-    <meta http-equiv="refresh" content="0;url=index.html">
-</head>
-<body>
+  </head>
+  <body>
     <h1>Redirecting...</h1>
-    <p>If you are not redirected, <a href="index.html">click here</a>.</p>
-</body>
+    <a href="index.html">Click here if you are not redirected.</a>
+    <script>document.location.href = 'index.html' + (window.location.search || '?') + '&redirect=' + encodeURIComponent(window.location.pathname + window.location.hash);</script>
+  </body>
 </html>
