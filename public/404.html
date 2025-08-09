@@ -2,25 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <title>Loading...</title>
     <script>
       // Single Page Apps for GitHub Pages
       (function() {
-        var segment = 0;
-        var l = window.location;
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + segment).join('/') + '/?/' +
-          l.pathname.slice(1).split('/').slice(segment).join('/').replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
+        // Store the current path
+        const path = window.location.pathname;
+        const search = window.location.search || '';
+        const hash = window.location.hash || '';
+        
+        // Only redirect if we're not already on the index page
+        if (path !== '/') {
+          // Store the original URL in session storage
+          sessionStorage.setItem('_redirect', path + search + hash);
+          
+          // Redirect to index.html with the original path as a query parameter
+          const newLocation = '/' + search + (search ? '&' : '?') + 'redirect=' + encodeURIComponent(path + hash);
+          window.location.replace(newLocation);
+        } else if (sessionStorage.getItem('_redirect')) {
+          // If we were redirected here and have a stored path, handle it
+          const redirect = sessionStorage.getItem('_redirect');
+          sessionStorage.removeItem('_redirect');
+          
+          // Use the router to navigate to the stored path
+          if (window.location.search.includes('redirect=')) {
+            const redirectMatch = window.location.search.match(/redirect=([^&]+)/);
+            if (redirectMatch && redirectMatch[1]) {
+              const targetPath = decodeURIComponent(redirectMatch[1]);
+              if (window.history && window.history.replaceState) {
+                window.history.replaceState({}, '', targetPath);
+              }
+            }
+          }
+        }
       })();
     </script>
   </head>
   <body>
-    <h1>Redirecting...</h1>
-    <a href="index.html">Click here if you are not redirected.</a>
-    <script>document.location.href = 'index.html' + (window.location.search || '?') + '&redirect=' + encodeURIComponent(window.location.pathname + window.location.hash);</script>
+    <h1>Loading...</h1>
+    <a href="/">Go to Homepage</a>
+    <script>
+      // This script will be executed after the page loads
+      if (window.location.search.includes('redirect=')) {
+        const redirectMatch = window.location.search.match(/redirect=([^&]+)/);
+        if (redirectMatch && redirectMatch[1]) {
+          const targetPath = decodeURIComponent(redirectMatch[1]);
+          // Let the SPA router handle the navigation
+          window.location.href = targetPath;
+        }
+      }
+    </script>
   </body>
 </html>
