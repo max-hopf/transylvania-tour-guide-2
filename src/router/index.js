@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, useRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../components/HomePage.vue'
 import TourPageTransylvania from '../components/TourPageTransylvania.vue'
 import TourPageBucovina from '../components/TourPageBucovina.vue'
@@ -9,29 +9,6 @@ import TourPageBespoke from '../components/TourPageBespoke.vue'
 import AboutUsPage from '../components/AboutUsPage.vue'
 import PrivacyPolicyPage from '../components/PrivacyPolicyPage.vue'
 import TermsAndConditionsPage from '../components/TermsAndConditionsPage.vue'
-
-// Handle 404 redirects from GitHub Pages
-if (typeof window !== 'undefined') {
-  const path = (window.location.search.match(/p=([^&]+)/) || [])[1];
-  if (path) {
-    window.history.replaceState(null, '', path + window.location.hash);
-  }
-}
-
-// Handle 404 redirects from GitHub Pages
-const handleRedirect = () => {
-  if (typeof window !== 'undefined') {
-    const urlParams = new URLSearchParams(window.location.search);
-    const redirectPath = urlParams.get('redirect');
-    if (redirectPath) {
-      // Clean up the URL
-      const cleanUrl = window.location.origin + redirectPath;
-      window.history.replaceState({}, '', cleanUrl);
-      return decodeURIComponent(redirectPath);
-    }
-  }
-  return null;
-};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -96,10 +73,18 @@ const router = createRouter({
   },
 })
 
-// Check for redirect when the app initializes
-const redirectPath = handleRedirect();
-if (redirectPath) {
-  router.push(redirectPath);
-}
+router.beforeEach((to, from, next) => {
+  const redirect = sessionStorage.getItem('redirect')
+  if (redirect) {
+    sessionStorage.removeItem('redirect')
+    if (to.path === '/') {
+      next(redirect)
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
 
 export default router
