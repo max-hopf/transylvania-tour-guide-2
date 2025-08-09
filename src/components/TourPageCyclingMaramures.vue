@@ -2,7 +2,7 @@
   <TourPageHeroSection
   title="Discover Maramureș by Bike"
   description="Explore the rolling hills of Maramureș on a bike tour, where you'll experience the authentic charm of this region."
-  imageName="maramures-cycling-title-img"
+  imageName="cycling-title-img"
 />
   <TourPageEssentialsSection
     duration="8 hours"
