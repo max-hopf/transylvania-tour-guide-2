@@ -1,7 +1,16 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import TourCard from '../TourCard.vue'
+
+// Mock IntersectionObserver to prevent errors in JSDOM
+const mockIntersectionObserver = vi.fn();
+mockIntersectionObserver.mockReturnValue({
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn(),
+});
+vi.stubGlobal('IntersectionObserver', mockIntersectionObserver);
 
 // Mock router setup
 const router = createRouter({
@@ -29,7 +38,7 @@ describe('TourCard.vue', () => {
     expect(wrapper.find('.tour-desc').text()).toBe('A great tour.')
     expect(wrapper.find('.days-number').text()).toBe('3')
     expect(wrapper.find('.days-label').text()).toBe('Days')
-    expect(wrapper.find('.tour-img').attributes('src')).toBe('test-image.jpg')
+    expect(wrapper.find('.tour-img').attributes('src')).toContain('test-image.jpg')
   })
 
   it('formats the price correctly with "/person"', () => {

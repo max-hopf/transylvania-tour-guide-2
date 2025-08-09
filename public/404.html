@@ -4,36 +4,17 @@
     <meta charset="utf-8">
     <title>Loading...</title>
     <script>
-      // Single Page Apps for GitHub Pages
       (function() {
-        // Store the current path
-        const path = window.location.pathname;
-        const search = window.location.search || '';
-        const hash = window.location.hash || '';
-        
-        // Only redirect if we're not already on the index page
-        if (path !== '/') {
-          // Store the original URL in session storage
-          sessionStorage.setItem('_redirect', path + search + hash);
-          
-          // Redirect to index.html with the original path as a query parameter
-          const newLocation = '/' + search + (search ? '&' : '?') + 'redirect=' + encodeURIComponent(path + hash);
-          window.location.replace(newLocation);
-        } else if (sessionStorage.getItem('_redirect')) {
-          // If we were redirected here and have a stored path, handle it
-          const redirect = sessionStorage.getItem('_redirect');
-          sessionStorage.removeItem('_redirect');
-          
-          // Use the router to navigate to the stored path
-          if (window.location.search.includes('redirect=')) {
-            const redirectMatch = window.location.search.match(/redirect=([^&]+)/);
-            if (redirectMatch && redirectMatch[1]) {
-              const targetPath = decodeURIComponent(redirectMatch[1]);
-              if (window.history && window.history.replaceState) {
-                window.history.replaceState({}, '', targetPath);
-              }
-            }
-          }
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          history.replaceState(null, null, redirect);
+        } else {
+          const path = window.location.pathname;
+          const search = window.location.search;
+          const hash = window.location.hash;
+          sessionStorage.setItem('redirect', path + search + hash);
+          window.location.replace('/');
         }
       })();
     </script>
@@ -41,16 +22,5 @@
   <body>
     <h1>Loading...</h1>
     <a href="/">Go to Homepage</a>
-    <script>
-      // This script will be executed after the page loads
-      if (window.location.search.includes('redirect=')) {
-        const redirectMatch = window.location.search.match(/redirect=([^&]+)/);
-        if (redirectMatch && redirectMatch[1]) {
-          const targetPath = decodeURIComponent(redirectMatch[1]);
-          // Let the SPA router handle the navigation
-          window.location.href = targetPath;
-        }
-      }
-    </script>
   </body>
 </html>

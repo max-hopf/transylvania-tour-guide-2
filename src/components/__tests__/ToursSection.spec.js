@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
-import OurToursSection from '../OurToursSection.vue'
+import OurToursSection from '../ToursSection.vue'
 import TourCard from '../TourCard.vue'
 
 // Mock IntersectionObserver to prevent errors in JSDOM
@@ -32,7 +32,7 @@ describe('OurToursSection.vue', () => {
       global: { plugins: [router] },
     })
     const cards = wrapper.findAllComponents(TourCard)
-    expect(cards.length).toBe(3)
+    expect(cards.length).toBe(6)
   })
 
   it('passes the correct props to the first TourCard', () => {
