@@ -31,7 +31,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const activities = [
   {
     title: 'Transylvania',
-    desc: 'Explore breathtaking mountain trails with our expert guides.',
+    desc: 'Explore a land of castles, legends, and unspoiled mountain beauty.',
     durationValue: 3,
     durationLabel: 'days',
     price: 'Start from 790 € / person',
@@ -39,7 +39,7 @@ const activities = [
   },
   {
     title: 'Maramures',
-    desc: 'Discover Transylvania’s vibrant village culture.',
+    desc: 'Step into a living museum of traditions, villages, and timeless landscapes.',
     durationValue: 3,
     durationLabel: 'days',
     price: 'Start from 590 € / person',
@@ -47,7 +47,7 @@ const activities = [
   },
   {
     title: 'Bucovina',
-    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
+    desc: 'Uncover the charm of painted monasteries and timeless countryside traditions.',
     durationValue: 3,
     durationLabel: 'days',
     price: 'Start from 590 € / person',
@@ -55,26 +55,26 @@ const activities = [
   },
   {
     title: 'Maramures and Bucovina',
-    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
+    desc: 'Embrace the spirit of Romania through vibrant villages and sacred art.',
     durationValue: 5,
     durationLabel: 'days',
-    price: 'Start from ? € / person',
+    price: 'Start from 1190 € / person',
     image: 'maramures-bucovina',
   },
   {
     title: 'Cycling Maramures',
-    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
+    desc: 'Pedal through rolling hills, wooden villages, and breathtaking landscapes.',
     durationValue: 8,
     durationLabel: 'hours',
-    price: 'Start from ? € / person',
+    price: 'Start from 125 € / person',
     image: 'cycling',
   },
   {
     title: 'Bespoke Tour',
-    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
-    durationValue: 3,
-    durationLabel: 'days',
-    price: 'Start from ? € / person',
+    desc: 'Create a journey that reflects your passions, pace, and personal story.',
+    durationValue: '',
+    durationLabel: '',
+    price: 'Tailored pricing',
     image: 'bespoke',
   },
 ]

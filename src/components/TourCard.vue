@@ -6,7 +6,7 @@
         <source :srcset="jpegSrcset" type="image/jpeg" :sizes="imageSizes" />
         <img :src="fallbackSrc" :alt="title" class="tour-img" loading="lazy" />
       </picture>
-      <div class="tour-days-badge">
+      <div class="tour-days-badge" :class="{ 'hidden': title === 'Bespoke Tour' }">
         <span class="days-number">{{ durationValue }}</span>
         <span class="days-label">{{ durationLabel }}</span>
       </div>
@@ -198,6 +198,15 @@ const tourLink = computed(() => {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.tour-days-badge {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.tour-days-badge.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .tour-days-badge {
   position: absolute;
   bottom: -2.25rem;
