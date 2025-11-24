@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import ProgressiveDisclosureInterface from '../ProgressiveDisclosureInterface.vue'
+import ProgressiveDisclosureInterface from '../ui/ProgressiveDisclosureInterface.vue'
 
 const mockTabs = [
   { label: 'Tab 1', content: 'Content for Tab 1' },

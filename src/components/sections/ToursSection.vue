@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import TourCard from './TourCard.vue'
+import TourCard from '../ui/TourCard.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const activities = [

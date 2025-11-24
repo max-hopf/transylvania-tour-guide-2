@@ -10,7 +10,7 @@
       @touchend="e => onTouchEnd(e, 'tripadvisor')"
       @click.stop
     >
-      <img src="../assets/social-media-icons/tripadvisor-icon-1.svg" alt="TripAdvisor" />
+      <img src="../../assets/social-media-icons/tripadvisor-icon-1.svg" alt="TripAdvisor" />
       <span class="social-label">tripadvisor</span>
     </a>
     <a
@@ -23,7 +23,7 @@
       @touchend="e => onTouchEnd(e, 'instagram')"
       @click.stop
     >
-      <img src="../assets/social-media-icons/instagram-icon-3.svg" alt="Instagram" />
+      <img src="../../assets/social-media-icons/instagram-icon-3.svg" alt="Instagram" />
       <span class="social-label">instagram</span>
     </a>
     <a
@@ -36,7 +36,7 @@
       @touchend="e => onTouchEnd(e, 'linkedin')"
       @click.stop
     >
-      <img src="../assets/social-media-icons/linkedin-icon-2.svg" alt="LinkedIn" />
+      <img src="../../assets/social-media-icons/linkedin-icon-2.svg" alt="LinkedIn" />
       <span class="social-label">linkedin</span>
     </a>
   </div>

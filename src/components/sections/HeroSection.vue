@@ -76,7 +76,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import HeaderNavBar from './HeaderNavBar.vue';
+import HeaderNavBar from '../layout/HeaderNavBar.vue';
 
 
 

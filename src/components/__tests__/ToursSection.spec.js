@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
-import OurToursSection from '../ToursSection.vue'
-import TourCard from '../TourCard.vue'
+import OurToursSection from '../sections/ToursSection.vue'
+import TourCard from '../ui/TourCard.vue'
 
 // Mock IntersectionObserver to prevent errors in JSDOM
 const mockIntersectionObserver = vi.fn()
@@ -42,7 +42,7 @@ describe('OurToursSection.vue', () => {
     const firstCard = wrapper.findComponent(TourCard)
     expect(firstCard.props('title')).toBe('Transylvania')
     expect(firstCard.props('desc')).toBe(
-      'Explore breathtaking mountain trails with our expert guides.',
+      'Explore a land of castles, legends, and unspoiled mountain beauty.',
     )
     expect(firstCard.props('price')).toBe('Start from 790 € / person')
   })

@@ -96,9 +96,9 @@
 </template>
 
 <script setup>
-import HeaderNavBar from './HeaderNavBar.vue';
-import FooterSection from './FooterSection.vue';
-import BackToTopButton from './BackToTopButton.vue';
+import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
+import FooterSection from '../components/layout/FooterSection.vue';
+import BackToTopButton from '../components/ui/BackToTopButton.vue';
 </script>
 
 <style scoped>

@@ -16,16 +16,16 @@
 
 <script setup>
 import { ref } from 'vue'
-import BackToTopButton from './BackToTopButton.vue'
-import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue'
-import TourCard from './TourCard.vue'
-import ToursSection from './ToursSection.vue'
-import FooterSection from './FooterSection.vue'
-import HeroSection from './HeroSection.vue'
-import ContactSection from './ContactSection.vue'
-import AboutUsSection from './AboutUsSection.vue'
-import TestimonialsSection from './TestimonialsSection.vue'
-import SocialMediaButtons from './SocialMediaButtons.vue'
+import BackToTopButton from '../components/ui/BackToTopButton.vue'
+import ProgressiveDisclosureInterface from '../components/ui/ProgressiveDisclosureInterface.vue'
+import TourCard from '../components/ui/TourCard.vue'
+import ToursSection from '../components/sections/ToursSection.vue'
+import FooterSection from '../components/layout/FooterSection.vue'
+import HeroSection from '../components/sections/HeroSection.vue'
+import ContactSection from '../components/sections/ContactSection.vue'
+import AboutUsSection from '../components/sections/AboutUsSection.vue'
+import TestimonialsSection from '../components/sections/TestimonialsSection.vue'
+import SocialMediaButtons from '../components/ui/SocialMediaButtons.vue'
 
 const tourTabs = ref([
   {

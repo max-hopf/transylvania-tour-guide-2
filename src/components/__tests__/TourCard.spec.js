@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
-import TourCard from '../TourCard.vue'
+import TourCard from '../ui/TourCard.vue'
 
 // Mock IntersectionObserver to prevent errors in JSDOM
 const mockIntersectionObserver = vi.fn();

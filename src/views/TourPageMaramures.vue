@@ -35,13 +35,13 @@
 </template>
 
 <script setup>
-import HeaderNavBar from './HeaderNavBar.vue';
-import FooterSection from './FooterSection.vue';
-import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
-import TourPageHeroSection from './TourPageHeroSection.vue';
-import TourPageGallery from './TourPageGallery.vue';
-import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
-import BackToTopButton from './BackToTopButton.vue';
+import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
+import FooterSection from '../components/layout/FooterSection.vue';
+import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';
+import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
+import TourPageGallery from '../components/sections/TourPageGallery.vue';
+import ProgressiveDisclosureInterface from '../components/ui/ProgressiveDisclosureInterface.vue';
+import BackToTopButton from '../components/ui/BackToTopButton.vue';
 
 const galleryImages = [
   { baseName: '1659594400829_l', alt: 'A scenic view of Maramures', orientation: 'landscape' },

@@ -30,14 +30,14 @@
 </template>
 
 <script setup>
-import HeaderNavBar from './HeaderNavBar.vue';
-import FooterSection from './FooterSection.vue';
+import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
+import FooterSection from '../components/layout/FooterSection.vue';
 
-import TourPageHeroSection from './TourPageHeroSection.vue';
-import TourPageEssentialsSection from './TourPageEssentialsSection.vue';
-import ProgressiveDisclosureInterface from './ProgressiveDisclosureInterface.vue';
-import TourPageGallery from './TourPageGallery.vue';
-import BackToTopButton from './BackToTopButton.vue';
+import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
+import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';
+import ProgressiveDisclosureInterface from '../components/ui/ProgressiveDisclosureInterface.vue';
+import TourPageGallery from '../components/sections/TourPageGallery.vue';
+import BackToTopButton from '../components/ui/BackToTopButton.vue';
 // The galleryImages array contains metadata for the cycling tour gallery
 // This data will be used by the TourPageGallery component to construct responsive image tags
 const galleryImages = [

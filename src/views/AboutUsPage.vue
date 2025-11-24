@@ -50,9 +50,9 @@
 </template>
 
 <script setup>
-import FooterSection from './FooterSection.vue';
-import TourPageHeroSection from './TourPageHeroSection.vue';
-import BackToTopButton from './BackToTopButton.vue';
+import FooterSection from '../components/layout/FooterSection.vue';
+import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
+import BackToTopButton from '../components/ui/BackToTopButton.vue';
 </script>
 
 <style scoped>

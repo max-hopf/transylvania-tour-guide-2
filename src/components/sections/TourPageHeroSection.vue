@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import HeaderNavBar from './HeaderNavBar.vue';
+import HeaderNavBar from '../layout/HeaderNavBar.vue';
 
 import { computed } from 'vue';
 
