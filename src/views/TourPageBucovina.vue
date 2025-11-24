@@ -27,8 +27,16 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
+
+useHead({
+  title: 'Bukovina Tour from Cluj-Napoca',
+  meta: [
+    { name: 'description', content: 'Explore the painted monasteries and rich traditions of Bukovina on this 3-day tour from Cluj-Napoca.' },
+  ],
+})
 import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';
 import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
 import TourPageGallery from '../components/sections/TourPageGallery.vue';

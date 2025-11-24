@@ -35,8 +35,16 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
+
+useHead({
+  title: 'The Wooden Country of Maramures',
+  meta: [
+    { name: 'description', content: 'Discover the authentic traditions, wooden churches, and breathtaking landscapes of Maramureș.' },
+  ],
+})
 import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';
 import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
 import TourPageGallery from '../components/sections/TourPageGallery.vue';

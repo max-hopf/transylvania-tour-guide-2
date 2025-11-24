@@ -117,8 +117,16 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
+
+useHead({
+  title: 'Privacy Policy',
+  meta: [
+    { name: 'description', content: 'Privacy Policy for Transylvania Tour Guide.' },
+  ],
+})
 import BackToTopButton from '../components/ui/BackToTopButton.vue';
 </script>
 

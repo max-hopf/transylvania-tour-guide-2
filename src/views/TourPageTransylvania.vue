@@ -42,7 +42,41 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
+
+useHead({
+  title: 'Transylvania Tour from Cluj-Napoca',
+  meta: [
+    { name: 'description', content: '3-day Transylvania tour from Cluj-Napoca. Visit Sighisoara, Bran Castle, and more.' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'TouristTrip',
+        name: 'Transylvania Tour from Cluj-Napoca',
+        description: '3-day Transylvania tour from Cluj-Napoca. Visit Sighisoara, Bran Castle, and more.',
+        provider: {
+          '@type': 'TravelAgency',
+          name: 'Transylvania Tour Guide',
+          url: 'https://transylvaniatourguide.com'
+        },
+        itinerary: [
+          {
+            '@type': 'City',
+            name: 'Sighisoara'
+          },
+          {
+            '@type': 'LandmarksOrHistoricalBuildings',
+            name: 'Bran Castle'
+          }
+        ]
+      })
+    }
+  ]
+})
 import FooterSection from '../components/layout/FooterSection.vue';
 
 import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';

@@ -35,8 +35,16 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
+
+useHead({
+  title: 'Tour Through Maramures and Bucovina',
+  meta: [
+    { name: 'description', content: 'Experience the best of both Regions with our combined tour, where traditional village life meets stunning painted monasteries.' },
+  ],
+})
 
 import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
 import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';

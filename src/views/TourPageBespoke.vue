@@ -63,8 +63,16 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
+
+useHead({
+  title: 'Bespoke Romania Tours',
+  meta: [
+    { name: 'description', content: 'Design your perfect trip across Romania - tailored to your interests, pace, and travel style.' },
+  ],
+})
 
 import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
 import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';

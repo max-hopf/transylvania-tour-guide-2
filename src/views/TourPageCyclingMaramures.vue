@@ -30,8 +30,16 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
+
+useHead({
+  title: 'Discover Maramureș by Bike',
+  meta: [
+    { name: 'description', content: 'Explore the rolling hills of Maramureș on a bike tour, where you\'ll experience the authentic charm of this region.' },
+  ],
+})
 
 import TourPageHeroSection from '../components/sections/TourPageHeroSection.vue';
 import TourPageEssentialsSection from '../components/sections/TourPageEssentialsSection.vue';

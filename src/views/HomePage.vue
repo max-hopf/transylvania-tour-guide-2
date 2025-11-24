@@ -16,7 +16,33 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useHead } from '@unhead/vue'
 import BackToTopButton from '../components/ui/BackToTopButton.vue'
+
+useHead({
+  title: 'Home',
+  meta: [
+    { name: 'description', content: 'Experience the best of Transylvania with our expert tour guides. Custom and standard tours available.' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'TravelAgency',
+        name: 'Transylvania Tour Guide',
+        url: 'https://transylvaniatourguide.com',
+        logo: 'https://transylvaniatourguide.com/android-chrome-512x512.png',
+        description: 'Experience the best of Transylvania with our expert tour guides.',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Cluj-Napoca',
+          addressCountry: 'RO'
+        }
+      })
+    }
+  ]
+})
 import ProgressiveDisclosureInterface from '../components/ui/ProgressiveDisclosureInterface.vue'
 import TourCard from '../components/ui/TourCard.vue'
 import ToursSection from '../components/sections/ToursSection.vue'
