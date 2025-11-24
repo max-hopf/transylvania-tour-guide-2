@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../views/HomePage.vue'
-import TourPageTransylvania from '../views/TourPageTransylvania.vue'
-import TourPageBucovina from '../views/TourPageBucovina.vue'
-import TourPageMaramures from '../views/TourPageMaramures.vue'
-import TourPageMaramuresBucovina from '../views/TourPageMaramuresBucovina.vue'
-import TourPageCyclingMaramures from '../views/TourPageCyclingMaramures.vue'
-import TourPageBespoke from '../views/TourPageBespoke.vue'
-import AboutUsPage from '../views/AboutUsPage.vue'
-import PrivacyPolicyPage from '../views/PrivacyPolicyPage.vue'
-import TermsAndConditionsPage from '../views/TermsAndConditionsPage.vue'
+
+const HomePage = () => import('../views/HomePage.vue')
+const TourPageTransylvania = () => import('../views/TourPageTransylvania.vue')
+const TourPageBucovina = () => import('../views/TourPageBucovina.vue')
+const TourPageMaramures = () => import('../views/TourPageMaramures.vue')
+const TourPageMaramuresBucovina = () => import('../views/TourPageMaramuresBucovina.vue')
+const TourPageCyclingMaramures = () => import('../views/TourPageCyclingMaramures.vue')
+const TourPageBespoke = () => import('../views/TourPageBespoke.vue')
+const AboutUsPage = () => import('../views/AboutUsPage.vue')
+const PrivacyPolicyPage = () => import('../views/PrivacyPolicyPage.vue')
+const TermsAndConditionsPage = () => import('../views/TermsAndConditionsPage.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
