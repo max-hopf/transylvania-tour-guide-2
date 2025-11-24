@@ -117,6 +117,8 @@
             src="/images/footer-images/anpc-sal.svg"
             alt="ANPC Alternative Dispute Resolution"
             class="anpc-logo"
+            width="256"
+            height="64"
           />
         </a>
         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="anpc-logo-link">
@@ -124,6 +126,8 @@
             src="/images/footer-images/anpc-sol.svg"
             alt="ANPC SOL - Online Dispute Resolution"
             class="anpc-logo"
+            width="256"
+            height="64"
           />
         </a>
         <!-- <ul class="footer-anpc">

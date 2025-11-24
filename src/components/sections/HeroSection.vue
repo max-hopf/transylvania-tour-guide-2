@@ -18,6 +18,7 @@
         :src="fallbackSrc"
         alt="A scenic view of the Transylvanian landscape at dusk."
         class="parallax-hero-bg hero-background-img"
+        fetchpriority="high"
       />
     </picture>
     <div class="hero-content">

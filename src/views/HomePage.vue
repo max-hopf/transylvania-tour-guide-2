@@ -24,6 +24,15 @@ useHead({
   meta: [
     { name: 'description', content: 'Experience the best of Transylvania with our expert tour guides. Custom and standard tours available.' },
   ],
+  link: [
+    {
+      rel: 'preload',
+      as: 'image',
+      href: '/images/hero-img/hero-img-1280w.webp',
+      imagesrcset: '/images/hero-img/hero-img-640w.webp 640w, /images/hero-img/hero-img-1024w.webp 1024w, /images/hero-img/hero-img-1280w.webp 1280w, /images/hero-img/hero-img-1920w.webp 1920w',
+      imagesizes: '100vw'
+    }
+  ],
   script: [
     {
       type: 'application/ld+json',
