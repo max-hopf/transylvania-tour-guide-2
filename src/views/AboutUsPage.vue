@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { useHead } from '@unhead/vue'
+import { useHead } from '@vueuse/head'
 import FooterSection from '../components/layout/FooterSection.vue';
 
 useHead({

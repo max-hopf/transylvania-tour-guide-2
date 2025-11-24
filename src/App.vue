@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { useHead } from '@unhead/vue'
+import { useHead } from '@vueuse/head'
 
 useHead({
   title: 'Transylvania Tour Guide',

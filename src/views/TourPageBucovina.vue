@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { useHead } from '@unhead/vue'
+import { useHead } from '@vueuse/head'
 import HeaderNavBar from '../components/layout/HeaderNavBar.vue';
 import FooterSection from '../components/layout/FooterSection.vue';
 

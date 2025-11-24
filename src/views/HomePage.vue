@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useHead } from '@unhead/vue'
+import { useHead } from '@vueuse/head'
 import BackToTopButton from '../components/ui/BackToTopButton.vue'
 
 useHead({
