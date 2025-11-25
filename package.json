@@ -11,7 +11,7 @@
     "format": "prettier --write src/",
     "optimize-images": "node scripts/optimize-images.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "build": "node scripts/generate-sitemap.js && vite build"
+    "build": "node scripts/generate-sitemap.js && vite-ssg build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -29,12 +29,16 @@
     "eslint": "^9.29.0",
     "eslint-plugin-vue": "~10.2.0",
     "globals": "^16.2.0",
-    "jsdom": "^26.1.0",
+    "jsdom": "26.1.0",
     "mkdirp": "^3.0.1",
     "prettier": "3.5.3",
     "sharp": "^0.34.2",
     "vite": "^7.2.4",
     "vite-plugin-vue-devtools": "^7.7.7",
+    "vite-ssg": "^28.2.2",
     "vitest": "^3.2.4"
+  },
+  "overrides": {
+    "jsdom": "26.1.0"
   }
 }
