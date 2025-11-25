@@ -42,7 +42,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser'; // Removed static import
 
 const props = defineProps({
   title: {
@@ -132,7 +132,9 @@ async function sendEmail(event) {
   if (isSubmitting.value) return;
   isSubmitting.value = true;
   try {
-    await emailjs.sendForm(
+    // Dynamically import EmailJS
+    const emailjs = await import('@emailjs/browser');
+    await emailjs.default.sendForm(
       'service_q1iejlx', // Replace with your EmailJS service ID
       'template_juwtnn1', // Replace with your EmailJS template ID
       event.target,
