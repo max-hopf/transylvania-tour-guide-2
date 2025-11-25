@@ -97,14 +97,21 @@ const jpegSrcset = computed(() => generateSrcset('jpeg'));
 const fallbackSrc = computed(() => `${heroImageDir}${heroImageBaseName}-1280w.jpeg`);
 // --- End Hero Image Configuration ---
 
-const showTitle = ref(false)
-const showTopText = ref(false)
-const showCTA = ref(false)
-const animationDisabled = ref(false)
+const showTitle = ref(true)
+const showTopText = ref(true)
+const showCTA = ref(true)
+const animationDisabled = ref(true)
 
 onMounted(() => {
 
 
+  // Disable animations for performance
+  animationDisabled.value = true
+  showTitle.value = true
+  showTopText.value = true
+  showCTA.value = true
+
+  /*
   if (localStorage.getItem('heroAnimated')) {
     animationDisabled.value = true
     showTitle.value = true
@@ -124,6 +131,7 @@ onMounted(() => {
       }, 600) // Initial delay before animation starts
     }, 0)
   }
+  */
 })
 </script>
 
