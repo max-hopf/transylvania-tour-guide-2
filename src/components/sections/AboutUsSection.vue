@@ -10,7 +10,7 @@
         <h2 class="about-title">See Romania Through Local Eyes</h2>
         <p class="about-description">
           Founded in 2015, transylvaniatourguide.com offers authentic, meaningful journeys through Transylvania, Maramureș, and Bucovina. Driven by passion and local insight, we craft private tours that go beyond sightseeing — connecting you with heritage, landscapes, and people. Based in Cluj-Napoca, we personalize every experience to your pace and interests. Join us and discover Romania through local eyes — unforgettable, genuine, and crafted with care.        </p>
-        <router-link class="about-btn" to="/about">Read More</router-link>
+        <router-link class="about-btn" to="/about">Read More About Us</router-link>
       </div>
       <div class="about-images">
         <picture>

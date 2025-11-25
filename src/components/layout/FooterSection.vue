@@ -3,17 +3,20 @@
     <div class="footer-columns">
       <!-- Quick Links -->
       <div class="footer-col">
-        <h4 class="footer-title">Quick Links</h4>
+        <h3 class="footer-title">Quick Links</h3>
         <ul class="footer-links">
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/about">About Us</router-link></li>
+          <li><router-link :to="{ path: '/', hash: '#activities' }">Our Activities</router-link></li>
+          <li><router-link :to="{ path: '/', hash: '#contact' }">Contact</router-link></li>
           <li><router-link to="/privacy-policy">Privacy Policy</router-link></li>
           <li><router-link to="/terms-and-conditions">Terms and Conditions</router-link></li>
-          <!-- <li><a href="#faq">FAQ</a></li> -->
         </ul>
       </div>
 
       <!-- Get in Touch -->
       <div class="footer-col">
-        <h4 class="footer-title">Get In Touch</h4>
+        <h3 class="footer-title">Get In Touch</h3>
         <ul class="footer-contact">
           <li class="footer-contact-item">
             <span class="footer-contact-text">
@@ -111,7 +114,7 @@
 
       <!-- ANPC & Payments -->
       <div class="footer-col">
-        <h4 class="footer-title">ANPC & Payments</h4>
+        <h3 class="footer-title">ANPC & Payments</h3>
         <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener" class="anpc-logo-link">
           <img
             src="/images/footer-images/anpc-sal.svg"
