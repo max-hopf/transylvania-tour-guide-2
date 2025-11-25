@@ -9,10 +9,12 @@ useHead({
     { name: 'description', content: 'Discover the beauty of Transylvania with our guided tours. Visit castles, fortified churches, and experience the local culture.' },
     { property: 'og:title', content: 'Transylvania Tour Guide' },
     { property: 'og:description', content: 'Discover the beauty of Transylvania with our guided tours.' },
-    { property: 'og:image', content: '/images/serp-preview.jpg' },
+    { property: 'og:image', content: '/images/castle-featured.jpg' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '1200' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:image', content: '/images/serp-preview.jpg' },
+    { name: 'twitter:image', content: '/images/castle-featured.jpg' },
   ],
   script: [
     {
@@ -23,7 +25,7 @@ useHead({
         name: 'Transylvania Tour Guide',
         url: 'https://www.yourguideintransylvania.com',
         logo: 'https://www.yourguideintransylvania.com/favicon.ico',
-        image: 'https://www.yourguideintransylvania.com/images/serp-preview.jpg',
+        image: 'https://www.yourguideintransylvania.com/images/castle-featured.jpg',
         description: 'Private tours in Transylvania, Romania.',
       }),
     },
