@@ -67,29 +67,9 @@ export const routes = [
   },
 ]
 
-const router = createRouter({
-  history: import.meta.env.SSR
-    ? createMemoryHistory(import.meta.env.BASE_URL)
-    : createWebHistory(import.meta.env.BASE_URL),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    // always scroll to top
-    return { top: 0 }
-  },
-})
-
-router.beforeEach((to, from, next) => {
-  const redirect = sessionStorage.getItem('redirect')
-  if (redirect) {
-    sessionStorage.removeItem('redirect')
-    if (to.path === '/') {
-      next(redirect)
-    } else {
-      next()
-    }
-  } else {
-    next()
+export const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    return savedPosition
   }
-})
-
-export default router
+  return { top: 0 }
+}

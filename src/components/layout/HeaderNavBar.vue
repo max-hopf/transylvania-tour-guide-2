@@ -130,9 +130,7 @@ function onMenuClick(event, href) {
 
 <style scoped>
 /* Base Styles */
-html {
-  scroll-behavior: smooth;
-}
+
 
 .header-navbar {
   background: rgba(255, 255, 255, 0.14);
