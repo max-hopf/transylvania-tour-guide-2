@@ -6,9 +6,9 @@
         <h3 class="footer-title">Quick Links</h3>
         <ul class="footer-links">
           <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About Us</router-link></li>
+          <!-- <li><router-link to="/about">About Us</router-link></li>
           <li><router-link :to="{ path: '/', hash: '#activities' }">Our Activities</router-link></li>
-          <li><router-link :to="{ path: '/', hash: '#contact' }">Contact</router-link></li>
+          <li><router-link :to="{ path: '/', hash: '#contact' }">Contact</router-link></li> -->
           <li><router-link to="/privacy-policy">Privacy Policy</router-link></li>
           <li><router-link to="/terms-and-conditions">Terms and Conditions</router-link></li>
         </ul>
