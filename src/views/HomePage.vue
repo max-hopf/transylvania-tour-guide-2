@@ -42,6 +42,7 @@ useHead({
         name: 'Transylvania Tour Guide',
         url: 'https://transylvaniatourguide.com',
         logo: 'https://transylvaniatourguide.com/android-chrome-512x512.png',
+        image: 'https://transylvaniatourguide.com/images/rich-snippet-thumbnail.jpg',
         description: 'Experience the best of Transylvania with our expert tour guides.',
         address: {
           '@type': 'PostalAddress',

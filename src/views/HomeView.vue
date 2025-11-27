@@ -13,7 +13,7 @@ useHead({
         url: 'https://www.yourguideintransylvania.com',
         primaryImageOfPage: {
           '@type': 'ImageObject',
-          url: 'https://www.yourguideintransylvania.com/images/serp-preview.jpg',
+          url: 'https://transylvaniatourguide.com/images/rich-snippet-thumbnail.jpg',
         },
       }),
     },

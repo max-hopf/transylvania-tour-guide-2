@@ -58,6 +58,7 @@ useHead({
         '@type': 'TouristTrip',
         name: 'Transylvania Tour from Cluj-Napoca',
         description: '3-day Transylvania tour from Cluj-Napoca. Visit Sighisoara, Bran Castle, and more.',
+        image: 'https://transylvaniatourguide.com/images/rich-snippet-thumbnail.jpg',
         provider: {
           '@type': 'TravelAgency',
           name: 'Transylvania Tour Guide',
