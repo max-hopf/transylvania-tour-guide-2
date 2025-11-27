@@ -34,7 +34,7 @@ const activities = [
     desc: 'Explore a land of castles, legends, and unspoiled mountain beauty.',
     durationValue: 3,
     durationLabel: 'days',
-    price: 'Start from 790 € / person',
+    price: 'Start from 795 € / person',
     image: 'transylvania',
   },
   {
@@ -42,7 +42,7 @@ const activities = [
     desc: 'Step into a living museum of traditions, villages, and timeless landscapes.',
     durationValue: 3,
     durationLabel: 'days',
-    price: 'Start from 590 € / person',
+    price: 'Start from 795 € / person',
     image: 'maramures',
   },
   {
@@ -50,7 +50,7 @@ const activities = [
     desc: 'Uncover the charm of painted monasteries and timeless countryside traditions.',
     durationValue: 3,
     durationLabel: 'days',
-    price: 'Start from 590 € / person',
+    price: 'Start from 795 € / person',
     image: 'bucovina',
   },
   {

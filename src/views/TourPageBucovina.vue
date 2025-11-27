@@ -6,7 +6,7 @@
   />
   <TourPageEssentialsSection
     duration="3 days"
-    price="from 590 € / person"
+    price="from 795 € / person"
     groupSize="2 – 7 participants"
   />
 
